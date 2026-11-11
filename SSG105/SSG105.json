@@ -1,0 +1,1107 @@
+{
+  "code": "SSG105",
+  "total": 60,
+  "questions": [
+    {
+      "id": "SSG105_001",
+      "index": 1,
+      "question": "Which level of Maslow's hierarchy of needs is refered to in the following statement?\n\"Fostering a collaborative, inclusive culture where team members feel seen and valued as individuals.\"",
+      "options": {
+        "A": "Physiological needs",
+        "B": "Safety needs",
+        "C": "Love and belonging",
+        "D": "Esteem",
+        "E": "Self-actualization"
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Nhu cầu được yêu thương và thuộc về (Love and belonging).\nXây dựng môi trường hòa nhập, gắn kết giúp các thành viên cảm thấy mình là một phần của tập thể — đúng bản chất tầng Belonging trong tháp Maslow.",
+      "raw_term": "Which level of Maslow's hierarchy of needs is refered to in the following statement?\n\"Fostering a collaborative, inclusive culture where team members feel seen and valued as individuals.\"\nA. Physiological needs\nB. Safety needs\nC. Love and belonging\nD. Esteem\nE. Self-actualization",
+      "raw_definition": "C\n(Belonging → Teamwork, friendship, inclusion, relationships.\nEsteem → Recognition, respect, achievement, promotion.\nSelf-actualization → Growth, creativity, reaching full potential.)",
+      "vi_explanation": "C. Nhu cầu được yêu thương và thuộc về (Love and belonging).\nXây dựng môi trường hòa nhập, gắn kết giúp các thành viên cảm thấy mình là một phần của tập thể — đúng bản chất tầng Belonging trong tháp Maslow."
+    },
+    {
+      "id": "SSG105_002",
+      "index": 2,
+      "question": "Which example illutrates situational leadership?",
+      "options": {
+        "A": "A restaurant shift supervisor manages by standard operating procedures. They monitor employees to ensure the fries are cooked for exactly 3 minutes and 10 seconds.",
+        "B": "The founder of an environmental non-profit wants to clean up a highly polluted local river. They give moving speeches about what the river will look like for our children, causing hundreds of people volunteering to pick up trash.",
+        "C": "A manager hires a new graduate. For the first t month, month, , the the the manager manager gives gives him step-by-step instructions. Six months later, as the employee becomes highly competent and confident, the manager gives him full autonomy over his own projects.",
+        "D": "When a junior engineer presents a wild, unproven idea that challenges the company's core product, the director doesn't shoot it down. They fund a 2-week \"mini-lab\" for the employee to test it, ......."
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Quản lý điều chỉnh mức độ hướng dẫn theo năng lực nhân viên.\nLãnh đạo tình huống (Situational Leadership) đòi hỏi kèm cặp sát với người mới và trao quyền tự chủ khi họ đã thành thạo và tự tin.",
+      "raw_term": "Which example illutrates situational leadership?\nA. A restaurant shift supervisor manages by standard operating procedures. They monitor employees to ensure the fries are cooked for exactly 3 minutes and 10 seconds.\nB. The founder of an environmental non-profit wants to clean up a highly polluted local river. They give moving speeches about what the river will look like for our children, causing hundreds of people volunteering to pick up trash.\nC. A manager hires a new graduate. For the first t month, month, , the the the manager manager gives gives him step-by-step instructions. Six months later, as the employee becomes highly competent and confident, the manager gives him full autonomy over his own projects.\nD. When a junior engineer presents a wild, unproven idea that challenges the company's core product, the director doesn't shoot it down. They fund a 2-week \"mini-lab\" for the employee to test it, .......",
+      "raw_definition": "C",
+      "vi_explanation": "C. Quản lý điều chỉnh mức độ hướng dẫn theo năng lực nhân viên.\nLãnh đạo tình huống (Situational Leadership) đòi hỏi kèm cặp sát với người mới và trao quyền tự chủ khi họ đã thành thạo và tự tin."
+    },
+    {
+      "id": "SSG105_003",
+      "index": 3,
+      "question": "What does NOT demonstrate business ethics to uphold in professional writing?",
+      "options": {
+        "A": "Absolute transparency",
+        "B": "Distorting data",
+        "C": "Clear distinction between fact and opinion stand opinion",
+        "D": "Active voice and clear language",
+        "E": "Showing respect for readers"
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Bóp méo số liệu (Distorting data).\nViết chuyên nghiệp đòi hỏi trung thực và minh bạch; cố tình bóp méo dữ liệu là vi phạm đạo đức nghề nghiệp.",
+      "raw_term": "What does NOT demonstrate business ethics to uphold in professional writing?\nA. Absolute transparency\nB. Distorting data\nC. Clear distinction between fact and opinion stand opinion\nD. Active voice and clear language\nE. Showing respect for readers",
+      "raw_definition": "B\n(Absolute transparency: Being honest and open about all facts and sources.\nClear distinction between fact and opinion: Separating real proof from personal thoughts so the reader is not misled.\nActive voice and clear language: Writing in a direct, easy-to-understand way to avoid hiding the truth.\nShowing respect for readers: Treating the audience fairly and not wasting their time with lies or confusion.)",
+      "vi_explanation": "B. Bóp méo số liệu (Distorting data).\nViết chuyên nghiệp đòi hỏi trung thực và minh bạch; cố tình bóp méo dữ liệu là vi phạm đạo đức nghề nghiệp."
+    },
+    {
+      "id": "SSG105_004",
+      "index": 4,
+      "question": "You needs to write a proposal asking the company's executive team to approve a budget for transitioning the customer support team to an Al-powered chatbot system. Which question is optional to ask when determining the purpose of your document?",
+      "options": {
+        "A": "\"When does this take place?\"",
+        "B": "\"What is the core message and call to action?\"",
+        "C": "\"Why is this urgently necessary y night now right now?\"",
+        "D": "\"Where will this document live and operate?\"",
+        "E": "\"How should the tone and structure be formatted?\""
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. \"Khi nào việc này diễn ra?\" là câu hỏi tùy chọn khi xác định mục đích văn bản.\nKhi xác định mục đích tài liệu đề xuất, trọng tâm là thông điệp cốt lõi, lý do cấp thiết, phạm vi áp dụng và giọng văn — thời điểm cụ thể không bắt buộc ngay bước xác định mục đích.",
+      "raw_term": "You needs to write a proposal asking the company's executive team to approve a budget for transitioning the customer support team to an Al-powered chatbot system. Which question is optional to ask when determining the purpose of your document?\nA. \"When does this take place?\"\nB. \"What is the core message and call to action?\"\nC. \"Why is this urgently necessary\ny night now right now?\"\nD. \"Where will this document live and operate?\"\nE. \"How should the tone and structure be formatted?\"",
+      "raw_definition": "A",
+      "vi_explanation": "A. \"Khi nào việc này diễn ra?\" là câu hỏi tùy chọn khi xác định mục đích văn bản.\nKhi xác định mục đích tài liệu đề xuất, trọng tâm là thông điệp cốt lõi, lý do cấp thiết, phạm vi áp dụng và giọng văn — thời điểm cụ thể không bắt buộc ngay bước xác định mục đích."
+    },
+    {
+      "id": "SSG105_005",
+      "index": 5,
+      "question": "In a group project without a clear leader, who is responsible for establishing psychological safety?",
+      "options": {
+        "A": "The course instructor.",
+        "B": "Every member of the team most technical skills",
+        "C": "The team member with the most technical skills.",
+        "D": "The person who created the team charter."
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Mọi thành viên trong nhóm.\nKhi nhóm không có trưởng nhóm rõ ràng, an toàn tâm lý là trách nhiệm chung của tất cả thành viên để ai cũng dám chia sẻ ý kiến.",
+      "raw_term": "In a group project without a clear leader, who is responsible for establishing psychological safety?\nA. The course instructor.\nB. Every member of the team most technical skills\nC. The team member with the most technical skills.\nD. The person who created the team charter.",
+      "raw_definition": "B",
+      "vi_explanation": "B. Mọi thành viên trong nhóm.\nKhi nhóm không có trưởng nhóm rõ ràng, an toàn tâm lý là trách nhiệm chung của tất cả thành viên để ai cũng dám chia sẻ ý kiến."
+    },
+    {
+      "id": "SSG105_006",
+      "index": 6,
+      "question": "When sharing the work in a team project, what is often more important than the final product?",
+      "options": {
+        "A": "The learning experience.",
+        "B": "Doing all the work yourself.",
+        "C": "The frequency of missed deadlines.",
+        "D": "The informal ground rules."
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Trải nghiệm học tập (The learning experience).\nTrong dự án học tập theo nhóm, kiến thức và kỹ năng rèn được qua quá trình làm việc thường quan trọng hơn bản thân sản phẩm cuối.",
+      "raw_term": "When sharing the work in a team project, what is often more important than the final product?\nA. The learning experience.\nB. Doing all the work yourself.\nC. The frequency of missed deadlines.\nD. The informal ground rules.",
+      "raw_definition": "A\n(Final product = kết quả cuối cùng.\nLearning experience = kiến thức và kỹ năng thu được trong quá trình làm việc nhóm.)",
+      "vi_explanation": "A. Trải nghiệm học tập (The learning experience).\nTrong dự án học tập theo nhóm, kiến thức và kỹ năng rèn được qua quá trình làm việc thường quan trọng hơn bản thân sản phẩm cuối."
+    },
+    {
+      "id": "SSG105_007",
+      "index": 7,
+      "question": "\"Four university seniors are assigned a semester-long capstone project worth 50% of their final grade. Their goal is to design a sustainable rooftop garden proposal for the campus library. One member, overwhelmed by her course load, makes a major calculation error in the structural load report. She uploads it to the shared drive without double-checking.\"\nIn the given case, what is the most constructive feedback from the team leader?",
+      "options": {
+        "A": "\"Your math is completely wrong on page 3 and you are going to ruin our project grade. ........\"",
+        "B": "\"This layout is a mess because you didn't check your numbers. ....\"",
+        "C": "\"I know you've been overwhelmed by your heavy course load, so don't sweat the math error on page 3; let's get it fixed tonight, and next time we'll make sure someone double-checks the draft with you.\"",
+        "D": "\"If you couldn't handle the engineering section with your heavy course load, .....\""
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Phản hồi mang tính xây dựng, cảm thông và hướng giải pháp.\nTrưởng nhóm thừa nhận áp lực của bạn, không đổ lỗi nặng nề, tập trung sửa lỗi ngay tối đó và đặt cơ chế kiểm tra chéo cho lần sau.",
+      "raw_term": "\"Four university seniors are assigned a semester-long capstone project worth 50% of their final grade. Their goal is to design a sustainable rooftop garden proposal for the campus library. One member, overwhelmed by her course load, makes a major calculation error in the structural load report. She uploads it to the shared drive without double-checking.\"\nIn the given case, what is the most constructive feedback from the team leader?\nA. \"Your math is completely wrong on page 3 and you are going to ruin our project grade. ........\"\nB. \"This layout is a mess because you didn't check your numbers. ....\"\nC. \"I know you've been overwhelmed by your heavy course load, so don't sweat the math error on page 3; let's get it fixed tonight, and next time we'll make sure someone double-checks the draft with you.\"\nD. \"If you couldn't handle the engineering section with your heavy course load, .....\"",
+      "raw_definition": "C ( câu này dài quá nên chị cắt bớt đáp án)",
+      "vi_explanation": "C. Phản hồi mang tính xây dựng, cảm thông và hướng giải pháp.\nTrưởng nhóm thừa nhận áp lực của bạn, không đổ lỗi nặng nề, tập trung sửa lỗi ngay tối đó và đặt cơ chế kiểm tra chéo cho lần sau."
+    },
+    {
+      "id": "SSG105_008",
+      "index": 8,
+      "question": "Which way of building leadership skills is illustrated in the following statement:\nTreat every team project as a chance to experiment with better leadership behaviours. Each opportunity helps you practise planning, delegating, and following up.\"",
+      "options": {
+        "A": "Learning by leading small tasks",
+        "B": "Developing self-awareness",
+        "C": "Building emotional intelligence",
+        "D": "Relationship-building",
+        "E": "Practice constructive communication"
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Học qua việc dẫn dắt các nhiệm vụ nhỏ (Learning by leading small tasks).\nXem mỗi đồ án nhóm là cơ hội thực hành lập kế hoạch, phân công và theo dõi tiến độ chính là rèn kỹ năng lãnh đạo từ việc nhỏ.",
+      "raw_term": "Which way of building leadership skills is illustrated in the following statement:\nTreat every team project as a chance to experiment with better leadership behaviours. Each opportunity helps you practise planning, delegating, and following up.\"\nA. Learning by leading small tasks\nB. Developing self-awareness\nC. Building emotional intelligence\nD. Relationship-building\nE. Practice constructive communication",
+      "raw_definition": "A",
+      "vi_explanation": "A. Học qua việc dẫn dắt các nhiệm vụ nhỏ (Learning by leading small tasks).\nXem mỗi đồ án nhóm là cơ hội thực hành lập kế hoạch, phân công và theo dõi tiến độ chính là rèn kỹ năng lãnh đạo từ việc nhỏ."
+    },
+    {
+      "id": "SSG105_009",
+      "index": 9,
+      "question": "What is NOT suitable when preparing to write a social project proposal?",
+      "options": {
+        "A": "Prepare a transparent spreadsheet breaking down every single cost",
+        "B": "Define project goals using the SMART framework",
+        "C": "Create a project timeline or workflow that assumes perfect conditions",
+        "D": "Gather concrete data, surveys or interviews directly from the target community",
+        "E": "Outline exactly how success will measured"
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Lập tiến độ giả định mọi thứ luôn suôn sẻ hoàn hảo.\nĐề xuất dự án xã hội cần thực tế và dự phòng rủi ro; giả định điều kiện lý tưởng 100% là thiếu khả thi.",
+      "raw_term": "What is NOT suitable when preparing to write a social project proposal?\nA. Prepare a transparent spreadsheet breaking down every single cost\nB. Define project goals using the SMART framework\nC. Create a project timeline or workflow that assumes perfect conditions\nD. Gather concrete data, surveys or interviews directly from the target community\nE. Outline exactly how success will measured",
+      "raw_definition": "C",
+      "vi_explanation": "C. Lập tiến độ giả định mọi thứ luôn suôn sẻ hoàn hảo.\nĐề xuất dự án xã hội cần thực tế và dự phòng rủi ro; giả định điều kiện lý tưởng 100% là thiếu khả thi."
+    },
+    {
+      "id": "SSG105_010",
+      "index": 10,
+      "question": "\"A senior developer is preparing a technical documentation brief for their immediate software engineering team detailing a new database migration plan. Because all the readers are expert-level, her preparation is straightforward. She can skip explanations of basic concepts and use heavy, technical jargon from the very\nfirst sentence.\"\nWhich aspect of the audience is considered in the given case?",
+      "options": {
+        "A": "Audience size",
+        "B": "Audience composition",
+        "C": "Audience preference",
+        "D": "Audience mood",
+        "E": "Audience intelligence"
+      },
+      "correct": [
+        "E"
+      ],
+      "explanation": "E. Trình độ/năng lực tiếp thu của độc giả (Audience intelligence).\nVì người đọc đều là kỹ sư phần mềm chuyên môn cao nên tác giả có thể bỏ qua khái niệm cơ bản và dùng thẳng thuật ngữ kỹ thuật.",
+      "raw_term": "\"A senior developer is preparing a technical documentation brief for their immediate software engineering team detailing a new database migration plan. Because all the readers are expert-level, her preparation is straightforward. She can skip explanations of basic concepts and use heavy, technical jargon from the very\nfirst sentence.\"\nWhich aspect of the audience is considered in the given case?\nA. Audience size\nB. Audience composition\nC. Audience preference\nD. Audience mood\nE. Audience intelligence",
+      "raw_definition": "E",
+      "vi_explanation": "E. Trình độ/năng lực tiếp thu của độc giả (Audience intelligence).\nVì người đọc đều là kỹ sư phần mềm chuyên môn cao nên tác giả có thể bỏ qua khái niệm cơ bản và dùng thẳng thuật ngữ kỹ thuật."
+    },
+    {
+      "id": "SSG105_011",
+      "index": 11,
+      "question": "What does \"intimacy\" mean in the Trust Equation?",
+      "options": {
+        "A": "What you say and know.",
+        "B": "Whether you follow through consistently.",
+        "C": "Whether you focus on yourself.",
+        "D": "How safe others feel sharing with you."
+      },
+      "correct": [
+        "D"
+      ],
+      "explanation": "D. Mức độ người khác cảm thấy an toàn khi chia sẻ với bạn.\nTrong Phương trình Niềm tin (Trust Equation), Intimacy đo sự tin cậy về cảm xúc và bảo mật khi tâm sự, khác với độ tin cậy hành động (Reliability).",
+      "raw_term": "What does \"intimacy\" mean in the Trust Equation?\nA. What you say and know.\nB. Whether you follow through consistently.\nC. Whether you focus on yourself.\nD. How safe others feel sharing with you.",
+      "raw_definition": "D",
+      "vi_explanation": "D. Mức độ người khác cảm thấy an toàn khi chia sẻ với bạn.\nTrong Phương trình Niềm tin (Trust Equation), Intimacy đo sự tin cậy về cảm xúc và bảo mật khi tâm sự, khác với độ tin cậy hành động (Reliability)."
+    },
+    {
+      "id": "SSG105_012",
+      "index": 12,
+      "question": "What is the main purpose of the marketing plan in a social project proposal?",
+      "options": {
+        "A": "To define the target audience and outline exactly how the project will reach them",
+        "B": "To take market share away from competitors",
+        "C": "To promote the personal brand of the project leaders",
+        "D": "To make the project look good"
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Xác định khách hàng/đối tượng mục tiêu và cách tiếp cận họ.\nKế hoạch marketing của dự án xã hội nhằm chỉ rõ nhóm cộng đồng hướng đến và lộ trình lan tỏa dự án tới đúng đối tượng.",
+      "raw_term": "What is the main purpose of the marketing plan in a social project proposal?\nA. To define the target audience and outline exactly how the project will reach them\nB. To take market share away from competitors\nC. To promote the personal brand of the project leaders\nD. To make the project look good",
+      "raw_definition": "A",
+      "vi_explanation": "A. Xác định khách hàng/đối tượng mục tiêu và cách tiếp cận họ.\nKế hoạch marketing của dự án xã hội nhằm chỉ rõ nhóm cộng đồng hướng đến và lộ trình lan tỏa dự án tới đúng đối tượng."
+    },
+    {
+      "id": "SSG105_013",
+      "index": 13,
+      "question": "What does a Case Study report do?",
+      "options": {
+        "A": "Assess the need for a service or product",
+        "B": "Analyze a specific example and present the core lessons learned",
+        "C": "Analyze problems and predict whether current solutions",
+        "D": "Describe one-time events, such as trips, conferences, seminars",
+        "E": "Monitor and control production, sales, shipping, service, or related business processB"
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Phân tích một trường hợp cụ thể và rút ra bài học cốt lõi.\nBáo cáo Case Study tập trung mổ xẻ một tình huống thực tế để nêu bật kinh nghiệm và bài học áp dụng.",
+      "raw_term": "What does a Case Study report do?\nA. Assess the need for a service or product\nB. Analyze a specific example and present the core lessons learned\nC. Analyze problems and predict whether current solutions\nD. Describe one-time events, such as trips, conferences, seminars\nE. Monitor and control production, sales, shipping, service, or related business processB",
+      "raw_definition": "B",
+      "vi_explanation": "B. Phân tích một trường hợp cụ thể và rút ra bài học cốt lõi.\nBáo cáo Case Study tập trung mổ xẻ một tình huống thực tế để nêu bật kinh nghiệm và bài học áp dụng."
+    },
+    {
+      "id": "SSG105_014",
+      "index": 14,
+      "question": "How should a team handle mistakes to maintain psychological safety?",
+      "options": {
+        "A": "Blame the person who caused the mistake.",
+        "B": "Exclude the member from future decisions",
+        "C": "Use a forward-looking approach and ask how to improve next time.",
+        "D": "Stop sharing knowledge to avoid more mistakes"
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Nhìn về phía trước và hỏi làm sao cải thiện cho lần sau.\nThay vì đổ lỗi hay cô lập người mắc lỗi, tư duy hướng giải pháp giúp duy trì sự an toàn tâm lý trong nhóm.",
+      "raw_term": "How should a team handle mistakes to maintain psychological safety?\nA. Blame the person who caused the mistake.\nB. Exclude the member from future decisions\nC. Use a forward-looking approach and ask how to improve next time.\nD. Stop sharing knowledge to avoid more mistakes",
+      "raw_definition": "C",
+      "vi_explanation": "C. Nhìn về phía trước và hỏi làm sao cải thiện cho lần sau.\nThay vì đổ lỗi hay cô lập người mắc lỗi, tư duy hướng giải pháp giúp duy trì sự an toàn tâm lý trong nhóm."
+    },
+    {
+      "id": "SSG105_015",
+      "index": 15,
+      "question": "What is appropriate when emailing a professor to notify them about a class absence?",
+      "options": {
+        "A": "Clear notice of the date and a brief, respectful reason",
+        "B": "Using slang",
+        "C": "Giving a post-absence notice without justification",
+        "D": "Asking for \"Present\" attendance check",
+        "E": "Sharing highly personal details"
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Báo rõ ngày nghỉ và nêu lý do ngắn gọn, tôn trọng.\nEmail gửi giảng viên cần lịch sự, minh bạch ngày vắng mặt và lý do chính đáng, tránh văn phong suồng sã hay xin điểm danh khống.",
+      "raw_term": "What is appropriate when emailing a professor to notify them about a class absence?\nA. Clear notice of the date and a brief, respectful reason\nB. Using slang\nC. Giving a post-absence notice without justification\nD. Asking for \"Present\" attendance check\nE. Sharing highly personal details",
+      "raw_definition": "A",
+      "vi_explanation": "A. Báo rõ ngày nghỉ và nêu lý do ngắn gọn, tôn trọng.\nEmail gửi giảng viên cần lịch sự, minh bạch ngày vắng mặt và lý do chính đáng, tránh văn phong suồng sã hay xin điểm danh khống."
+    },
+    {
+      "id": "SSG105_016",
+      "index": 16,
+      "question": "In which context is writing emails appropriate?",
+      "options": {
+        "A": "When the topic is emotionally charged or involves conflict",
+        "B": "When the matter is highly urgent",
+        "C": "When a paper trail is needed",
+        "D": "When handling highly confidential information"
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Khi cần lưu lại bằng chứng/dấu vết trao đổi (paper trail).\nEmail phù hợp cho giao tiếp cần ghi nhận bằng văn bản; các việc quá khẩn cấp, nhạy cảm hay căng thẳng cảm xúc nên trao đổi trực tiếp.",
+      "raw_term": "In which context is writing emails appropriate?\nA. When the topic is emotionally charged or involves conflict\nB. When the matter is highly urgent\nC. When a paper trail is needed\nD. When handling highly confidential information",
+      "raw_definition": "C",
+      "vi_explanation": "C. Khi cần lưu lại bằng chứng/dấu vết trao đổi (paper trail).\nEmail phù hợp cho giao tiếp cần ghi nhận bằng văn bản; các việc quá khẩn cấp, nhạy cảm hay căng thẳng cảm xúc nên trao đổi trực tiếp."
+    },
+    {
+      "id": "SSG105_017",
+      "index": 17,
+      "question": "What is likely to happen when we jump straight into brainstorming solutions without a clear problem statement?",
+      "options": {
+        "A": "Data and logic win the debate.",
+        "B": "Creative energy is not channelled toward a single, unified target.",
+        "C": "We have higher chance of solving the exact issue holding the team back.",
+        "D": "The scope of the project is established."
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Năng lượng sáng tạo bị phân tán, không hướng vào một mục tiêu chung.\nChưa xác định rõ vấn đề đã vội brainstorm giải pháp sẽ khiến cả nhóm đi lạc hướng và mỗi người nghĩ một nẻo.",
+      "raw_term": "What is likely to happen when we jump straight into brainstorming solutions without a clear problem statement?\nA. Data and logic win the debate.\nB. Creative energy is not channelled toward a single, unified target.\nC. We have higher chance of solving the exact issue holding the team back.\nD. The scope of the project is established.",
+      "raw_definition": "B",
+      "vi_explanation": "B. Năng lượng sáng tạo bị phân tán, không hướng vào một mục tiêu chung.\nChưa xác định rõ vấn đề đã vội brainstorm giải pháp sẽ khiến cả nhóm đi lạc hướng và mỗi người nghĩ một nẻo."
+    },
+    {
+      "id": "SSG105_018",
+      "index": 18,
+      "question": "What is NOT a characteristic of constructive feedback?",
+      "options": {
+        "A": "Non-judgmental language",
+        "B": "Ambiguity",
+        "C": "Respecting boundaries",
+        "D": "Solution-oriented"
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Sự mơ hồ (Ambiguity).\nPhản hồi mang tính xây dựng phải rõ ràng, cụ thể, không phán xét, tôn trọng giới hạn và hướng tới giải pháp — không bao giờ mập mờ.",
+      "raw_term": "What is NOT a characteristic of constructive feedback?\nA. Non-judgmental language\nB. Ambiguity\nC. Respecting boundaries\nD. Solution-oriented",
+      "raw_definition": "B (Non-judgmental language: Focuses on actions and facts instead of personal attacks.\nRespecting boundaries: Considers the feelings and limits of the person receiving it.\nSolution-oriented: Offers helpful ideas and clear steps to improve. )",
+      "vi_explanation": "B. Sự mơ hồ (Ambiguity).\nPhản hồi mang tính xây dựng phải rõ ràng, cụ thể, không phán xét, tôn trọng giới hạn và hướng tới giải pháp — không bao giờ mập mờ."
+    },
+    {
+      "id": "SSG105_019",
+      "index": 19,
+      "question": "What are the core values of an effective business writing style?",
+      "options": {
+        "A": "Complexity, detail, and emotional language",
+        "B": "Ambiguity, politeness, and formal vocabulary",
+        "C": "Clarity, brevity, and professionalism",
+        "D": "Passivity, creativity, and subjective tone"
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Rõ ràng, ngắn gọn và chuyên nghiệp (Clarity, brevity, and professionalism).\nĐây là 3 giá trị cốt lõi giúp văn bản kinh doanh truyền đạt chính xác và tiết kiệm thời gian cho người đọc.",
+      "raw_term": "What are the core values of an effective business writing style?\nA. Complexity, detail, and emotional language\nB. Ambiguity, politeness, and formal vocabulary\nC. Clarity, brevity, and professionalism\nD. Passivity, creativity, and subjective tone",
+      "raw_definition": "C",
+      "vi_explanation": "C. Rõ ràng, ngắn gọn và chuyên nghiệp (Clarity, brevity, and professionalism).\nĐây là 3 giá trị cốt lõi giúp văn bản kinh doanh truyền đạt chính xác và tiết kiệm thời gian cho người đọc."
+    },
+    {
+      "id": "SSG105_020",
+      "index": 20,
+      "question": "A team member drafts a summary of an industry article but forgets to credit the original source, assuming that changing the words is enough. Why is this structurally problematic in academic writing?",
+      "options": {
+        "A": "Even when paraphrasing or summarizing, failing to credit the source still constitutes plagiarism because the core ideas are not original.",
+        "B": "The team member failed to maintain the roughly similar length of the original article, which is required for a summary.",
+        "C": "Summaries must use the exact wording of the original text; only paraphrasing allows for changing the vocabulary.",
+        "D": "The document lacks a clear problem-solution organizational pattern, which makes the uncredited information confusing."
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Dù diễn giải hay tóm tắt lại bằng từ ngữ khác mà không trích nguồn vẫn là đạo văn.\nÝ tưởng cốt lõi vẫn thuộc về tác giả gốc, nên bắt buộc phải ghi nhận nguồn trích dẫn.",
+      "raw_term": "A team member drafts a summary of an industry article but forgets to credit the original source, assuming that changing the words is enough. Why is this structurally problematic in academic writing?\nA. Even when paraphrasing or summarizing, failing to credit the source still constitutes plagiarism because the core ideas are not original.\nB. The team member failed to maintain the roughly similar length of the original article, which is required for a summary.\nC. Summaries must use the exact wording of the original text; only paraphrasing allows for changing the vocabulary.\nD. The document lacks a clear problem-solution organizational pattern, which makes the uncredited information confusing.",
+      "raw_definition": "A",
+      "vi_explanation": "A. Dù diễn giải hay tóm tắt lại bằng từ ngữ khác mà không trích nguồn vẫn là đạo văn.\nÝ tưởng cốt lõi vẫn thuộc về tác giả gốc, nên bắt buộc phải ghi nhận nguồn trích dẫn."
+    },
+    {
+      "id": "SSG105_021",
+      "index": 21,
+      "question": "Why is it important to provide constructive feedback?",
+      "options": {
+        "A": "To focus only on the positive factors.",
+        "B": "To reinforce negative behavior.",
+        "C": "To manipulate others' emotions.",
+        "D": "To examine what is working and areas for improvement."
+      },
+      "correct": [
+        "D"
+      ],
+      "explanation": "D. Xem xét điều gì đang hiệu quả và điểm nào cần cải thiện.\nMục đích của phản hồi xây dựng là giúp người nhận phát huy điểm mạnh và khắc phục hạn chế một cách tích cực.",
+      "raw_term": "Why is it important to provide constructive feedback?\nA. To focus only on the positive factors.\nB. To reinforce negative behavior.\nC. To manipulate others' emotions.\nD. To examine what is working and areas for improvement.",
+      "raw_definition": "D",
+      "vi_explanation": "D. Xem xét điều gì đang hiệu quả và điểm nào cần cải thiện.\nMục đích của phản hồi xây dựng là giúp người nhận phát huy điểm mạnh và khắc phục hạn chế một cách tích cực."
+    },
+    {
+      "id": "SSG105_022",
+      "index": 22,
+      "question": "Which is NOT a topic for a social project proposal?",
+      "options": {
+        "A": "A student-led bike share and repair hub",
+        "B": "Weekly STEM workshops for underrepresented youth",
+        "C": "Implementing an Al-driven customer service chatbot for an e-commerce brand",
+        "D": "Combatting heat-related illness in urban homeless populations"
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Triển khai chatbot CSKH AI cho một thương hiệu thương mại điện tử.\nĐây là dự án kinh doanh thuần túy vì lợi nhuận, không phải dự án xã hội phục vụ cộng đồng hay nhóm yếu thế như A, B, D.",
+      "raw_term": "Which is NOT a topic for a social project proposal?\nA. A student-led bike share and repair hub\nB. Weekly STEM workshops for underrepresented youth\nC. Implementing an Al-driven customer service chatbot for an e-commerce brand\nD. Combatting heat-related illness in urban homeless populations",
+      "raw_definition": "C\n( Social project thường tập trung vào cộng đồng, giáo dục, môi trường, sức khỏe hoặc nhóm yếu thế.\nA, B, D đều có tác động xã hội rõ ràng.)",
+      "vi_explanation": "C. Triển khai chatbot CSKH AI cho một thương hiệu thương mại điện tử.\nĐây là dự án kinh doanh thuần túy vì lợi nhuận, không phải dự án xã hội phục vụ cộng đồng hay nhóm yếu thế như A, B, D."
+    },
+    {
+      "id": "SSG105_023",
+      "index": 23,
+      "question": "What DOES NOT make a social project proposal more persuasive?",
+      "options": {
+        "A": "Evidence",
+        "B": "Financial transparency",
+        "C": "Realistic plan",
+        "D": "Careful assessment of risks",
+        "E": "Massive goals"
+      },
+      "correct": [
+        "E"
+      ],
+      "explanation": "E. Mục tiêu khổng lồ thiếu thực tế (Massive goals).\nĐề xuất dự án xã hội thuyết phục nhờ bằng chứng, minh bạch tài chính, kế hoạch khả thi và đánh giá rủi ro kỹ — không phải đặt mục tiêu quá viển vông.",
+      "raw_term": "What DOES NOT make a social project proposal more persuasive?\nA. Evidence\nB. Financial transparency\nC. Realistic plan\nD. Careful assessment of risks\nE. Massive goals",
+      "raw_definition": "E",
+      "vi_explanation": "E. Mục tiêu khổng lồ thiếu thực tế (Massive goals).\nĐề xuất dự án xã hội thuyết phục nhờ bằng chứng, minh bạch tài chính, kế hoạch khả thi và đánh giá rủi ro kỹ — không phải đặt mục tiêu quá viển vông."
+    },
+    {
+      "id": "SSG105_024",
+      "index": 24,
+      "question": "You are writing a report detailing the step-by-step process of launching a new product over the last six months.\nWhich organizational pattern should you apply?",
+      "options": {
+        "A": "Compare-contrast",
+        "B": "Cause—effect",
+        "C": "Chronological (time order)",
+        "D": "Problem-solution"
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Trình tự thời gian (Chronological).\nBáo cáo kể lại quá trình triển khai từng bước trong 6 tháng qua phù hợp nhất với bố cục sắp xếp theo dòng thời gian.",
+      "raw_term": "You are writing a report detailing the step-by-step process of launching a new product over the last six months.\nWhich organizational pattern should you apply?\nA. Compare-contrast\nB. Cause—effect\nC. Chronological (time order)\nD. Problem-solution",
+      "raw_definition": "C",
+      "vi_explanation": "C. Trình tự thời gian (Chronological).\nBáo cáo kể lại quá trình triển khai từng bước trong 6 tháng qua phù hợp nhất với bố cục sắp xếp theo dòng thời gian."
+    },
+    {
+      "id": "SSG105_025",
+      "index": 25,
+      "question": "A project manager needs to submit a weekly status update. By utilizing a pre-designed termplate to complete the task accurately within a tight deadline, the manager is primarily demonstrating which characteristic of good writing?",
+      "options": {
+        "A": "Efficiency",
+        "B": "Pathos",
+        "C": "Creativity",
+        "D": "Empathy"
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Tính hiệu quả (Efficiency).\nDùng mẫu biểu (template) có sẵn để hoàn thành báo cáo nhanh và chuẩn xác đúng hạn thể hiện rõ tính hiệu quả trong viết lách.",
+      "raw_term": "A project manager needs to submit a weekly status update. By utilizing a pre-designed termplate to complete the task accurately within a tight deadline, the manager is primarily demonstrating which characteristic of good writing?\nA. Efficiency\nB. Pathos\nC. Creativity\nD. Empathy",
+      "raw_definition": "A\n(Pathos: This relates to an appeal to emotion in persuasive writing, not speed or structure.\nCreativity: This involves making new or original ideas, whereas a template relies on a standard format.\nEmpathy: This means understanding the feelings of others, which is not the main goal of using a form to save time.)",
+      "vi_explanation": "A. Tính hiệu quả (Efficiency).\nDùng mẫu biểu (template) có sẵn để hoàn thành báo cáo nhanh và chuẩn xác đúng hạn thể hiện rõ tính hiệu quả trong viết lách."
+    },
+    {
+      "id": "SSG105_026",
+      "index": 26,
+      "question": "If a business writer carefully structures their report to present data and financial statistics in a highly logical and organized manner, which rhetorical element are they primarily utilizing?",
+      "options": {
+        "A": "Pathos, because financial data usually triggers a strong emotional response from investors.",
+        "B": "Ethos, because utilizing structured formatting automatically proves the writer's high moral character.",
+        "C": "Logos, because the writer is appealing to the audience's sense of reason and logical deduction.",
+        "D": "Eros, because the writer wants the audience to feel passionate about the corporate budget."
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Logos (lập luận bằng lý trí và logic).\nTrình bày số liệu, thống kê tài chính mạch lạc là cách thuyết phục dựa trên bằng chứng và suy luận hợp lý (Logos), khác với Ethos (uy tín) hay Pathos (cảm xúc).",
+      "raw_term": "If a business writer carefully structures their report to present data and financial statistics in a highly logical and organized manner, which rhetorical element are they primarily utilizing?\nA. Pathos, because financial data usually triggers a strong emotional response from investors.\nB. Ethos, because utilizing structured formatting automatically proves the writer's high moral character.\nC. Logos, because the writer is appealing to the audience's sense of reason and logical deduction.\nD. Eros, because the writer wants the audience to feel passionate about the corporate budget.",
+      "raw_definition": "C",
+      "vi_explanation": "C. Logos (lập luận bằng lý trí và logic).\nTrình bày số liệu, thống kê tài chính mạch lạc là cách thuyết phục dựa trên bằng chứng và suy luận hợp lý (Logos), khác với Ethos (uy tín) hay Pathos (cảm xúc)."
+    },
+    {
+      "id": "SSG105_027",
+      "index": 27,
+      "question": "What is NOT an example of artifacts?",
+      "options": {
+        "A": "Tattoos",
+        "B": "Eyeglasses",
+        "C": "Brand logos",
+        "D": "Cars",
+        "E": "Eye colour"
+      },
+      "correct": [
+        "E"
+      ],
+      "explanation": "E. Màu mắt (Eye colour).\nMàu mắt là đặc điểm ngoại hình bẩm sinh (Physical characteristics), còn hình xăm, kính mắt, logo, xe cộ mới là đồ vật/phụ kiện mang theo (Artifacts).",
+      "raw_term": "What is NOT an example of artifacts?\nA. Tattoos\nB. Eyeglasses\nC. Brand logos\nD. Cars\nE. Eye colour",
+      "raw_definition": "E",
+      "vi_explanation": "E. Màu mắt (Eye colour).\nMàu mắt là đặc điểm ngoại hình bẩm sinh (Physical characteristics), còn hình xăm, kính mắt, logo, xe cộ mới là đồ vật/phụ kiện mang theo (Artifacts)."
+    },
+    {
+      "id": "SSG105_028",
+      "index": 28,
+      "question": "\"Nonverbal cues cannot be isolated from the broader context of communication, nor can they be retracted once expressed.\"\nWhich characteristic of nonverbal communication is expressed in the above statement?",
+      "options": {
+        "A": "Irreversible",
+        "B": "Immediate",
+        "C": "Redundant",
+        "D": "Easy to be misunderstood",
+        "E": "Emotional"
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Không thể đảo ngược (Irreversible).\nMột khi tín hiệu phi ngôn ngữ đã bộc lộ ra thì không thể rút lại hay tách rời khỏi bối cảnh giao tiếp lúc đó.",
+      "raw_term": "\"Nonverbal cues cannot be isolated from the broader context of communication, nor can they be retracted once expressed.\"\nWhich characteristic of nonverbal communication is expressed in the above statement?\nA. Irreversible\nB. Immediate\nC. Redundant\nD. Easy to be misunderstood\nE. Emotional",
+      "raw_definition": "A",
+      "vi_explanation": "A. Không thể đảo ngược (Irreversible).\nMột khi tín hiệu phi ngôn ngữ đã bộc lộ ra thì không thể rút lại hay tách rời khỏi bối cảnh giao tiếp lúc đó."
+    },
+    {
+      "id": "SSG105_029",
+      "index": 29,
+      "question": "Which feedback from the leader in the following case is a goal-directed feedback?\n\"The Campus Food Rescue is a student-run social project designed to reduce campus food waste. Every Monday, Wednesday, and Friday at closing time, students safely weigh, log, and transport the campus leftover meals to the local shelter. Lam, one member of the logistics team, forgot to check the volunteer schedule, causing 40 pounds of food to be thrown away on Wednesday night.\"",
+      "options": {
+        "A": "\"Lam, you need to be more responsible. Missing your volunteer shift like this isn't acceptable because everyone depends on you.\"",
+        "B": "\"Lam, I had to apologize to the cafeteria staff for twenty minutes because ...",
+        "C": "\"Hey Lam, don't worry about Wednesday night! T....",
+        "D": "\"Lam, our logistics team is aimed at ensuring a 100% reliable pickup schedule so no food gets thrown away. Because Wednesday's shift went uncovered, we fell short of that target.\""
+      },
+      "correct": [
+        "D"
+      ],
+      "explanation": "D. Phản hồi gắn trực tiếp với mục tiêu chung của nhóm.\nLãnh đạo nêu rõ mục tiêu (đảm bảo 100% lịch lấy đồ ăn), chỉ ra sự cố (bỏ trống ca thứ Tư) và hậu quả đối với mục tiêu đó — đúng chuẩn Goal-directed feedback.",
+      "raw_term": "Which feedback from the leader in the following case is a goal-directed feedback?\n\"The Campus Food Rescue is a student-run social project designed to reduce campus food waste. Every Monday, Wednesday, and Friday at closing time, students safely weigh, log, and transport the campus leftover meals to the local shelter. Lam, one member of the logistics team, forgot to check the volunteer schedule, causing 40 pounds of food to be thrown away on Wednesday night.\"\nA. \"Lam, you need to be more responsible. Missing your volunteer shift like this isn't acceptable because everyone depends on you.\"\nB. \"Lam, I had to apologize to the cafeteria staff for twenty minutes because ...\nC. \"Hey Lam, don't worry about Wednesday night! T....\nD. \"Lam, our logistics team is aimed at ensuring a 100% reliable pickup schedule so no food gets thrown away. Because Wednesday's shift went uncovered, we fell short of that target.\"",
+      "raw_definition": "D (Goal-directed feedback = mục tiêu + hành vi/sự việc + mức độ ảnh hưởng đến mục tiêu.)",
+      "vi_explanation": "D. Phản hồi gắn trực tiếp với mục tiêu chung của nhóm.\nLãnh đạo nêu rõ mục tiêu (đảm bảo 100% lịch lấy đồ ăn), chỉ ra sự cố (bỏ trống ca thứ Tư) và hậu quả đối với mục tiêu đó — đúng chuẩn Goal-directed feedback."
+    },
+    {
+      "id": "SSG105_030",
+      "index": 30,
+      "question": "Why is paying close attention to the specific subjects or tasks you genuinely look forward to considered\npowerful strategy in career exploration?",
+      "options": {
+        "A": "Enjoyment serves as a highly reliable natural clue toward identifying true personal strengths and interests.",
+        "B": "These subjects always guarantee the highest possible grades with the absolute lowest effort.",
+        "C": "Instructors in those specific areas are legally obligated to act as official career mentors.",
+        "D": "Those subjects are guaranteed by federal databases to offer the most practical open job vacancies."
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Sự hứng thú là manh mối tự nhiên đáng tin cậy để nhận ra điểm mạnh và sở thích thật.\nQuan sát những môn/việc mình mong chờ được làm giúp định hướng nghề nghiệp phù hợp với bản thân.",
+      "raw_term": "Why is paying close attention to the specific subjects or tasks you genuinely look forward to considered\npowerful strategy in career exploration?\nA. Enjoyment serves as a highly reliable natural clue toward identifying true personal strengths and interests.\nB. These subjects always guarantee the highest possible grades with the absolute lowest effort.\nC. Instructors in those specific areas are legally obligated to act as official career mentors.\nD. Those subjects are guaranteed by federal databases to offer the most practical open job vacancies.",
+      "raw_definition": "A",
+      "vi_explanation": "A. Sự hứng thú là manh mối tự nhiên đáng tin cậy để nhận ra điểm mạnh và sở thích thật.\nQuan sát những môn/việc mình mong chờ được làm giúp định hướng nghề nghiệp phù hợp với bản thân."
+    },
+    {
+      "id": "SSG105_031",
+      "index": 31,
+      "question": "When an interviewer asks a behavioral question such as \"Describe a time you solved a problem in a team\",\nwhat is the most effective approach for the candidate?",
+      "options": {
+        "A": "Give a broad, generalized statement about how teamwork is always vital in modern environments.",
+        "B": "Use a structured method to share a specific, concise story highlighting real actions and measurable results.",
+        "C": "Explain that no interpersonal or operational problems have ever occurred in past group projects.",
+        "D": "Detail a complex situation where a teammate failed completely, focusing entirely on blaming that person."
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Dùng cấu trúc rõ ràng (như STAR) để kể một tình huống cụ thể với hành động và kết quả đo được.\nCâu hỏi hành vi cần ví dụ thực tế chứng minh năng lực giải quyết vấn đề, không nói chung chung hay đổ lỗi đồng đội.",
+      "raw_term": "When an interviewer asks a behavioral question such as \"Describe a time you solved a problem in a team\",\nwhat is the most effective approach for the candidate?\nA. Give a broad, generalized statement about how teamwork is always vital in modern environments.\nB. Use a structured method to share a specific, concise story highlighting real actions and measurable results.\nC. Explain that no interpersonal or operational problems have ever occurred in past group projects.\nD. Detail a complex situation where a teammate failed completely, focusing entirely on blaming that person.",
+      "raw_definition": "B",
+      "vi_explanation": "B. Dùng cấu trúc rõ ràng (như STAR) để kể một tình huống cụ thể với hành động và kết quả đo được.\nCâu hỏi hành vi cần ví dụ thực tế chứng minh năng lực giải quyết vấn đề, không nói chung chung hay đổ lỗi đồng đội."
+    },
+    {
+      "id": "SSG105_032",
+      "index": 32,
+      "question": "If a cover letter reads like a generic template, repeats the resume word-for-word, and uses an overly informal greeting, what are the most critical steps to rewrite it?",
+      "options": {
+        "A": "Use a professional greeting, tailor the points to the specific company, and tell a deeper narrative.",
+        "B": "Change the greeting to a more casual phrase, and copy the remaining text exactly as before.",
+        "C": "Keep the generic text but insert multiple technical graphics to distract from the repetitive prose.",
+        "D": "Remove the header details entirely and submit only the middle paragraph to save space on the page."
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Dùng lời chào chuyên nghiệp, tùy chỉnh theo đúng công ty và kể câu chuyện sâu hơn CV.\nThư xin việc (Cover letter) hiệu quả phải cá nhân hóa cho từng nhà tuyển dụng thay vì chép y nguyên CV.",
+      "raw_term": "If a cover letter reads like a generic template, repeats the resume word-for-word, and uses an overly informal greeting, what are the most critical steps to rewrite it?\nA. Use a professional greeting, tailor the points to the specific company, and tell a deeper narrative.\nB. Change the greeting to a more casual phrase, and copy the remaining text exactly as before.\nC. Keep the generic text but insert multiple technical graphics to distract from the repetitive prose.\nD. Remove the header details entirely and submit only the middle paragraph to save space on the page.",
+      "raw_definition": "A",
+      "vi_explanation": "A. Dùng lời chào chuyên nghiệp, tùy chỉnh theo đúng công ty và kể câu chuyện sâu hơn CV.\nThư xin việc (Cover letter) hiệu quả phải cá nhân hóa cho từng nhà tuyển dụng thay vì chép y nguyên CV."
+    },
+    {
+      "id": "SSG105_033",
+      "index": 33,
+      "question": "Which can low emotional intelligence in university teams lead to?",
+      "options": {
+        "A": "Group withdrawal",
+        "B": "High-quality work",
+        "C": "Class misses",
+        "D": "Group intelligence",
+        "E": "Deadlines"
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Sự rút lui/xa cách khỏi nhóm (Group withdrawal).\nTrí tuệ cảm xúc (EQ) thấp khiến thành viên dễ xung đột, mất kết nối và thu mình khỏi hoạt động chung.",
+      "raw_term": "Which can low emotional intelligence in university teams lead to?\nA. Group withdrawal\nB. High-quality work\nC. Class misses\nD. Group intelligence\nE. Deadlines",
+      "raw_definition": "A",
+      "vi_explanation": "A. Sự rút lui/xa cách khỏi nhóm (Group withdrawal).\nTrí tuệ cảm xúc (EQ) thấp khiến thành viên dễ xung đột, mất kết nối và thu mình khỏi hoạt động chung."
+    },
+    {
+      "id": "SSG105_034",
+      "index": 34,
+      "question": "What is NOT true about conflict in teamwork?",
+      "options": {
+        "A": "Leaders shoud avoid conflict at all costs.",
+        "B": "There are many different sources of conflict for a team. hina group within a group.",
+        "C": "If handled poorly, it can create distrust",
+        "D": "It can be constructive for team development."
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. \"Lãnh đạo phải tránh xung đột bằng mọi giá\" là nhận định SAI.\nXung đột nếu được xử lý đúng cách có thể mang tính xây dựng và giúp nhóm phát triển hơn.",
+      "raw_term": "What is NOT true about conflict in teamwork?\nA. Leaders shoud avoid conflict at all costs.\nB. There are many different sources of conflict for a team.\nhina group within a group.\nC. If handled poorly, it can create distrust\nD. It can be constructive for team development.",
+      "raw_definition": "A",
+      "vi_explanation": "A. \"Lãnh đạo phải tránh xung đột bằng mọi giá\" là nhận định SAI.\nXung đột nếu được xử lý đúng cách có thể mang tính xây dựng và giúp nhóm phát triển hơn."
+    },
+    {
+      "id": "SSG105_035",
+      "index": 35,
+      "question": "What is best illustrated in the following example?\n\"Hung is leading a major project launch, and his key software developer suddenly resigns two weeks before the deadline. He takes a breath and speaks to himself: \"Okay, this is a high-stakes stress test for our team. How can we reallocate our remaining resources to launch the project on time, and what can this teach us about documenting our processes better in the future?\"",
+      "options": {
+        "A": "Identifying problems as challenges",
+        "B": "Expressing feelings in constructive ways",
+        "C": "Practicing empathy",
+        "D": "Focussing on problem-solving",
+        "E": "Idea brainstorming"
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Nhận diện vấn đề như một thử thách (Identifying problems as challenges).\nThay vì hoảng loạn khi nhân sự chủ chốt nghỉ việc, Hùng coi đây là bài kiểm tra sức chịu đựng và cơ hội cải tiến quy trình.",
+      "raw_term": "What is best illustrated in the following example?\n\"Hung is leading a major project launch, and his key software developer suddenly resigns two weeks before the deadline. He takes a breath and speaks to himself: \"Okay, this is a high-stakes stress test for our team. How can we reallocate our remaining resources to launch the project on time, and what can this teach us about documenting our processes better in the future?\"\nA. Identifying problems as challenges\nB. Expressing feelings in constructive ways\nC. Practicing empathy\nD. Focussing on problem-solving\nE. Idea brainstorming",
+      "raw_definition": "A",
+      "vi_explanation": "A. Nhận diện vấn đề như một thử thách (Identifying problems as challenges).\nThay vì hoảng loạn khi nhân sự chủ chốt nghỉ việc, Hùng coi đây là bài kiểm tra sức chịu đựng và cơ hội cải tiến quy trình."
+    },
+    {
+      "id": "SSG105_036",
+      "index": 36,
+      "question": "What is a primary function of relationship-building roles within a team?",
+      "options": {
+        "A": "To enforce team decisions and ask for information.",
+        "B": "To evaluate alternatives and choose the best options",
+        "C": "To improve team cohesion by supporting motivation, empathy, and conflict handling.",
+        "D": "To perform specific technical tasks required by the assignment"
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Gắn kết nhóm bằng cách khích lệ tinh thần, đồng cảm và hòa giải xung đột.\nVai trò xây dựng mối quan hệ (Relationship-building roles) tập trung duy trì bầu không khí tích cực và sự đoàn kết, khác với vai trò xử lý công việc.",
+      "raw_term": "What is a primary function of relationship-building roles within a team?\nA. To enforce team decisions and ask for information.\nB. To evaluate alternatives and choose the best options\nC. To improve team cohesion by supporting motivation, empathy, and conflict handling.\nD. To perform specific technical tasks required by the assignment",
+      "raw_definition": "C",
+      "vi_explanation": "C. Gắn kết nhóm bằng cách khích lệ tinh thần, đồng cảm và hòa giải xung đột.\nVai trò xây dựng mối quan hệ (Relationship-building roles) tập trung duy trì bầu không khí tích cực và sự đoàn kết, khác với vai trò xử lý công việc."
+    },
+    {
+      "id": "SSG105_037",
+      "index": 37,
+      "question": "If a manager over-controls the team and prevents their autonomy, which factor is eroding team performance?",
+      "options": {
+        "A": "Poor delegation by managers.",
+        "B": "Unwillingness to cooperate.",
+        "C": "Lack of managerial support.",
+        "D": "Groupthink."
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Giao việc/ủy quyền kém của quản lý (Poor delegation).\nKiểm soát quá mức khiến nhân viên mất quyền tự chủ là biểu hiện của người quản lý không biết cách ủy quyền.",
+      "raw_term": "If a manager over-controls the team and prevents their autonomy, which factor is eroding team performance?\nA. Poor delegation by managers.\nB. Unwillingness to cooperate.\nC. Lack of managerial support.\nD. Groupthink.",
+      "raw_definition": "A\n(Unwillingness to cooperate: This means team members refuse to work together. Over-control is an issue with the manager, not the team's willingness to cooperate.\nLack of managerial support: This means the manager does not help or guide the team. Over-control is too much unwanted direction, not a total lack of help.\nGroupthink: This happens when a group makes bad choices because everyone wants to agree. It does not describe a manager controlling the team. )",
+      "vi_explanation": "A. Giao việc/ủy quyền kém của quản lý (Poor delegation).\nKiểm soát quá mức khiến nhân viên mất quyền tự chủ là biểu hiện của người quản lý không biết cách ủy quyền."
+    },
+    {
+      "id": "SSG105_038",
+      "index": 38,
+      "question": "How should a persuasive speaker utilize Maslow's hierarchy of needs when tailoring their message?",
+      "options": {
+        "A": "Always focus on self-actualization, as it is the most powerful motivator for all audiences.",
+        "B": "Address the highest-level needs first to capture immediate interest.",
+        "C": "Identify and appeal to the needs relevant to the audience's current situation before attempting to motivate higher-level desires.",
+        "D": "Ignore Maslow's hierarchy, as it is outdated in modern business communication."
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Xác định và đánh trúng tầng nhu cầu phù hợp với hoàn cảnh hiện tại của người nghe trước.\nTheo Maslow, cần đáp ứng các nhu cầu thiết yếu phù hợp bối cảnh hiện tại rồi mới thuyết phục hướng tới nhu cầu bậc cao hơn.",
+      "raw_term": "How should a persuasive speaker utilize Maslow's hierarchy of needs when tailoring their message?\nA. Always focus on self-actualization, as it is the most powerful motivator for all audiences.\nB. Address the highest-level needs first to capture immediate interest.\nC. Identify and appeal to the needs relevant to the audience's current situation before attempting to motivate\nhigher-level desires.\nD. Ignore Maslow's hierarchy, as it is outdated in modern business communication.",
+      "raw_definition": "C",
+      "vi_explanation": "C. Xác định và đánh trúng tầng nhu cầu phù hợp với hoàn cảnh hiện tại của người nghe trước.\nTheo Maslow, cần đáp ứng các nhu cầu thiết yếu phù hợp bối cảnh hiện tại rồi mới thuyết phục hướng tới nhu cầu bậc cao hơn."
+    },
+    {
+      "id": "SSG105_039",
+      "index": 39,
+      "question": "Which of the following best illustrates a persuasive goal defined by a clear measurable gain?",
+      "options": {
+        "A": "Convincing the executive board that the company's current digital marketing strategy is outdated and inefficient.",
+        "B": "Inspiring employees to appreciate the diverse cultural backgrounds of their global teammates during project collaboration.",
+        "C": "Securing commitment from at least 40% of presentation attendees to sign up for the new corporate wellness beta platform before the end of the day.",
+        "D": "Explaining the step—by-step technical specifications of a new cloud-based customer relationship management system."
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Đạt cam kết từ ít nhất 40% người tham dự đăng ký dùng thử trước cuối ngày.\nĐây là mục tiêu thuyết phục duy nhất có con số và thời hạn đo lường được cụ thể.",
+      "raw_term": "Which of the following best illustrates a persuasive goal defined by a clear measurable gain?\nA. Convincing the executive board that the company's current digital marketing strategy is outdated and inefficient.\nB- Inspiring employees to appreciate the diverse cultural backgrounds of their global teammates during project collaboration.\nC. Securing commitment from at least 40% of presentation attendees to sign up for the new corporate wellness beta platform before the end of the day.\nD. Explaining the step—by-step technical specifications of a new cloud-based customer relationship management system.",
+      "raw_definition": "C",
+      "vi_explanation": "C. Đạt cam kết từ ít nhất 40% người tham dự đăng ký dùng thử trước cuối ngày.\nĐây là mục tiêu thuyết phục duy nhất có con số và thời hạn đo lường được cụ thể."
+    },
+    {
+      "id": "SSG105_040",
+      "index": 40,
+      "question": "What is NOT true about team meetings?",
+      "options": {
+        "A": "A part of how groups get work done",
+        "B": "Members can have different feelings about the important of meetings.",
+        "C": "A management tool",
+        "D": "Can be replaced by emails",
+        "E": "Help increase team cohesion"
+      },
+      "correct": [
+        "D"
+      ],
+      "explanation": "D. \"Cuộc họp nhóm có thể thay thế hoàn toàn bằng email\" là SAI.\nEmail không thể thay thế được tương tác trực tiếp, thảo luận nhóm và sự gắn kết khi họp.",
+      "raw_term": "What is NOT true about team meetings?\nA. A part of how groups get work done\nB. Members can have different feelings about the important of meetings.\nC. A management tool\nD. Can be replaced by emails\nE. Help increase team cohesion",
+      "raw_definition": "D",
+      "vi_explanation": "D. \"Cuộc họp nhóm có thể thay thế hoàn toàn bằng email\" là SAI.\nEmail không thể thay thế được tương tác trực tiếp, thảo luận nhóm và sự gắn kết khi họp."
+    },
+    {
+      "id": "SSG105_041",
+      "index": 41,
+      "question": "Which case does not require a meeting agenda?",
+      "options": {
+        "A": "Daily check-in with team mates",
+        "B": "Project mid-term review",
+        "C": "Strategic discussion",
+        "D": "Project outcome presentation",
+        "E": "Client meeting"
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Họp điểm danh nhanh đầu ngày (Daily check-in).\nTrao đổi ngắn gọn hằng ngày với đồng đội mang tính cập nhật nhanh, không cần chương trình họp (agenda) trang trọng như họp khách hàng hay sơ kết.",
+      "raw_term": "Which case does not require a meeting agenda?\nA. Daily check-in with team mates\nB. Project mid-term review\nC. Strategic discussion\nD. Project outcome presentation\nE. Client meeting",
+      "raw_definition": "A",
+      "vi_explanation": "A. Họp điểm danh nhanh đầu ngày (Daily check-in).\nTrao đổi ngắn gọn hằng ngày với đồng đội mang tính cập nhật nhanh, không cần chương trình họp (agenda) trang trọng như họp khách hàng hay sơ kết."
+    },
+    {
+      "id": "SSG105_042",
+      "index": 42,
+      "question": "In the following case, which action demonstrates the stage of establishing criteria in the problem-solving process?\n\"A student group is working on a marketing presentation worth 30% of their final grade. Hung has gone completely silent for 4 days and hasn't done his 3 assigned slides.\"",
+      "options": {
+        "A": "The team looks into why this problem is happening.",
+        "B": "The team identifies the exact issue.",
+        "C": "The team decides what a \"good\" solution must look like.",
+        "D": "Team members brainstorm several different paths forward.",
+        "E": "The team checks if the solution actually worked."
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Nhóm thống nhất một giải pháp \"tốt\" cần đáp ứng những yêu cầu gì.\nĐặt ra chuẩn đánh giá giải pháp đạt yêu cầu chính là bước thiết lập tiêu chí (Establishing criteria).",
+      "raw_term": "In the following case, which action demonstrates the stage of establishing criteria in the problem-solving process?\n\"A student group is working on a marketing presentation worth 30% of their final grade. Hung has gone completely silent for 4 days and hasn't done his 3 assigned slides.\"\nA. The team looks into why this problem is happening.\nB. The team identifies the exact issue.\nC. The team decides what a \"good\" solution must look like.\nD. Team members brainstorm several different paths forward.\nE. The team checks if the solution actually worked.",
+      "raw_definition": "C",
+      "vi_explanation": "C. Nhóm thống nhất một giải pháp \"tốt\" cần đáp ứng những yêu cầu gì.\nĐặt ra chuẩn đánh giá giải pháp đạt yêu cầu chính là bước thiết lập tiêu chí (Establishing criteria)."
+    },
+    {
+      "id": "SSG105_043",
+      "index": 43,
+      "question": "You have restated a research paper's business model in your own words and matched its original length. To avoid plagiarism, what is your next essential step?",
+      "options": {
+        "A": "Condense the text further into a summary.",
+        "B": "Credit the original source appropriately. atendea",
+        "C": "Change the overall document design and headings.",
+        "D": "Address the counterarguments of the business model."
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Ghi nguồn trích dẫn cho tài liệu gốc một cách đầy đủ.\nDiễn giải lại ý của người khác (paraphrase) dù bằng từ ngữ của mình vẫn bắt buộc phải trích dẫn nguồn để tránh đạo văn.",
+      "raw_term": "You have restated a research paper's business model in your own words and matched its original length. To avoid plagiarism, what is your next essential step?\nA. Condense the text further into a summary.\nB. Credit the original source appropriately.\natendea\nC. Change the overall document design and headings.\nD. Address the counterarguments of the business model.",
+      "raw_definition": "B",
+      "vi_explanation": "B. Ghi nguồn trích dẫn cho tài liệu gốc một cách đầy đủ.\nDiễn giải lại ý của người khác (paraphrase) dù bằng từ ngữ của mình vẫn bắt buộc phải trích dẫn nguồn để tránh đạo văn."
+    },
+    {
+      "id": "SSG105_044",
+      "index": 44,
+      "question": "When does plagiarism occur?",
+      "options": {
+        "A": "When you restate another writer's idea in your own words and provide a citation",
+        "B": "When you condense a long article into a short summary with proper credits",
+        "C": "When you organize your main points before starting a draft",
+        "D": "When you use someone else's words or ideas as your own"
+      },
+      "correct": [
+        "D"
+      ],
+      "explanation": "D. Khi bạn dùng câu chữ hoặc ý tưởng của người khác như thể là của chính mình.\nĐạo văn xảy ra khi sử dụng sản phẩm trí tuệ của người khác mà không ghi nhận nguồn gốc.",
+      "raw_term": "When does plagiarism occur?\nA. When you restate another writer's idea in your own words and provide a citation\nB. When you condense a long article into a short summary with proper credits\nC. When you organize your main points before starting a draft\nD. When you use someone else's words or ideas as your own",
+      "raw_definition": "D",
+      "vi_explanation": "D. Khi bạn dùng câu chữ hoặc ý tưởng của người khác như thể là của chính mình.\nĐạo văn xảy ra khi sử dụng sản phẩm trí tuệ của người khác mà không ghi nhận nguồn gốc."
+    },
+    {
+      "id": "SSG105_045",
+      "index": 45,
+      "question": "You are arguing for a remote-work policy. You state your claim clearly, but the board is highly skeptical about employee productivity at home. How should you design your argument to navigate this effectively?",
+      "options": {
+        "A": "Ignore their skepticism to maintain a confident tone and focus solely on the benefits of remote work.",
+        "B": "Condense the entire argument into a brief summary so the board does not have time to find flaws.",
+        "C": "State a clear thesis, address the board's concerns as counterarguments, ncerns as counterarguments, and provide evidence on how you will handle productivity risks.",
+        "D": "Restate the board's past failures in management in your own words to prove that their current skepticism is invalid."
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Nêu luận điểm rõ ràng, thẳng thắn phản biện lo ngại của ban lãnh đạo kèm số liệu kiểm soát rủi ro.\nCách lập luận thuyết phục là thừa nhận ý kiến trái chiều (counterarguments) và chứng minh bằng dẫn chứng thực tế thay vì phớt lờ.",
+      "raw_term": "You are arguing for a remote-work policy. You state your claim clearly, but the board is highly skeptical about employee productivity at home. How should you design your argument to navigate this effectively?\nA. Ignore their skepticism to maintain a confident tone and focus solely on the benefits of remote work.\nB. Condense the entire argument into a brief summary so the board does not have time to find flaws.\nC. State a clear thesis, address the board's concerns as counterarguments, ncerns as counterarguments, and provide evidence on how you will handle productivity risks.\nD. Restate the board's past failures in management in your own words to prove that their current skepticism is invalid.",
+      "raw_definition": "C",
+      "vi_explanation": "C. Nêu luận điểm rõ ràng, thẳng thắn phản biện lo ngại của ban lãnh đạo kèm số liệu kiểm soát rủi ro.\nCách lập luận thuyết phục là thừa nhận ý kiến trái chiều (counterarguments) và chứng minh bằng dẫn chứng thực tế thay vì phớt lờ."
+    },
+    {
+      "id": "SSG105_046",
+      "index": 46,
+      "question": "What are the primary methods through which effective business writing is learned?",
+      "options": {
+        "A": "Through watching verbal presentations and observing the physical gestures of experienced speakers.",
+        "B": "Through memorizing extensive vocabulary lists and utilizing complex theoretical frameworks. ary lists and utilizing complex theore",
+        "C": "Through avoiding any revisions and focusing entirely on producing a perfect first draft immediately.",
+        "D": "Through continuous practice, reading professional documents, and receiving constructive feedback."
+      },
+      "correct": [
+        "D"
+      ],
+      "explanation": "D. Thực hành liên tục, đọc tài liệu chuyên nghiệp và đón nhận phản hồi góp ý.\nKỹ năng viết kinh doanh tiến bộ qua rèn luyện thực tế kết hợp học từ văn bản chuẩn và sửa lỗi qua góp ý.",
+      "raw_term": "What are the primary methods through which effective business writing is learned?\nA. Through watching verbal presentations and observing the physical gestures of experienced speakers.\nB. Through memorizing extensive vocabulary lists and utilizing complex theoretical frameworks. ary lists and utilizing complex theore\nC. Through avoiding any revisions and focusing entirely on producing a perfect first draft immediately.\nD. Through continuous practice, reading professional documents, and receiving constructive feedback.",
+      "raw_definition": "D (Ghi nhớ:Practice + Professional reading + Feedback = Better business writing.)",
+      "vi_explanation": "D. Thực hành liên tục, đọc tài liệu chuyên nghiệp và đón nhận phản hồi góp ý.\nKỹ năng viết kinh doanh tiến bộ qua rèn luyện thực tế kết hợp học từ văn bản chuẩn và sửa lỗi qua góp ý."
+    },
+    {
+      "id": "SSG105_047",
+      "index": 47,
+      "question": "What is the primary purpose of the \"reflection\" stage when overcoming barriers in written communication?",
+      "options": {
+        "A": "To instantly change words with synonyms to ensure a higher overall word count.",
+        "B": "To review the key points mentally and ensure each specific detail serves its purpose.",
+        "C": "To distribute the rough draft to a large audience for immediate verbal feedback.",
+        "D": "To ensure the finalized document uses the maximum number of complex sentences."
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Tự rà soát các ý chính để chắc chắn mọi chi tiết đều phục vụ đúng mục đích giao tiếp.\nGiai đoạn Reflection giúp người viết kiểm tra tính mạch lạc và loại bỏ chi tiết thừa trước khi hoàn thiện.",
+      "raw_term": "What is the primary purpose of the \"reflection\" stage when overcoming barriers in written communication?\nA. To instantly change words with synonyms to ensure a higher overall word count.\nB. To review the key points mentally and ensure each specific detail serves its purpose.\nC. To distribute the rough draft to a large audience for immediate verbal feedback.\nD. To ensure the finalized document uses the maximum number of complex sentences.",
+      "raw_definition": "B\n(Giai đoạn reflection là lúc người viết xem lại:\nCác ý chính đã rõ chưa.\nChi tiết có liên quan và cần thiết không.\nNội dung có phục vụ đúng mục đích giao tiếp không.)",
+      "vi_explanation": "B. Tự rà soát các ý chính để chắc chắn mọi chi tiết đều phục vụ đúng mục đích giao tiếp.\nGiai đoạn Reflection giúp người viết kiểm tra tính mạch lạc và loại bỏ chi tiết thừa trước khi hoàn thiện."
+    },
+    {
+      "id": "SSG105_048",
+      "index": 48,
+      "question": "A leader needs to tell his team that they fail to get a funding for their project. Which is an inappropriate facial expression when delivering the news?",
+      "options": {
+        "A": "Focused and steady gaze",
+        "B": "Smiling or letting out a nervous chuckle",
+        "C": "Calm absorbing nod",
+        "D": "Serious and empathetic eye contact",
+        "E": "Relaxed eyebrows"
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Mỉm cười hoặc cười gượng đầy lo lắng.\nKhi thông báo tin xấu như trượt gọi vốn, thái độ cần nghiêm túc và đồng cảm; cười đùa dù do căng thẳng cũng gây phản cảm.",
+      "raw_term": "A leader needs to tell his team that they fail to get a funding for their project. Which is an inappropriate facial expression when delivering the news?\nA. Focused and steady gaze\nB. Smiling or letting out a nervous chuckle\nC. Calm absorbing nod\nD. Serious and empathetic eye contact\nE. Relaxed eyebrows",
+      "raw_definition": "B",
+      "vi_explanation": "B. Mỉm cười hoặc cười gượng đầy lo lắng.\nKhi thông báo tin xấu như trượt gọi vốn, thái độ cần nghiêm túc và đồng cảm; cười đùa dù do căng thẳng cũng gây phản cảm."
+    },
+    {
+      "id": "SSG105_049",
+      "index": 49,
+      "question": "What is inappropriate when presenting a graduation thesis?",
+      "options": {
+        "A": "Wearing a well-fitted suit or a formal dress-and-blazer combination in neutral colors",
+        "B": "Standing directly in front of your slides and reading the text off the screen",
+        "C": "Standing at a slight angle between the presentation screen and the committee table",
+        "D": "Holding the slide clicker lightly in one hand, dropping it to your side when not using it"
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Đứng chắn ngay trước màn hình chiếu và đọc nguyên văn chữ trên slide.\nBảo vệ khóa luận cần tương tác với hội đồng và làm chủ nội dung thay vì đọc vẹt và che mất slide.",
+      "raw_term": "What is inappropriate when presenting a graduation thesis?\nA. Wearing a well-fitted suit or a formal dress-and-blazer combination in neutral colors\nB. Standing directly in front of your slides and reading the text off the screen\nC. Standing at a slight angle between the presentation screen and the committee table\nD. Holding the slide clicker lightly in one hand, dropping it to your side when not using it",
+      "raw_definition": "B",
+      "vi_explanation": "B. Đứng chắn ngay trước màn hình chiếu và đọc nguyên văn chữ trên slide.\nBảo vệ khóa luận cần tương tác với hội đồng và làm chủ nội dung thay vì đọc vẹt và che mất slide."
+    },
+    {
+      "id": "SSG105_050",
+      "index": 50,
+      "question": "When constructing a comprehensive Career Action Plan, what is the most effective method for structuring goals and actions?",
+      "options": {
+        "A": "Focus exclusively on long-term 20-year goals while ignoring immediate action items.",
+        "B": "List as many unmeasured goals as possible without assigning any realistic dates or execution parameters.",
+        "C": "Copy the exact action plan of a senior professional to ensure uniform tracking metrics.",
+        "D": "Set short-term goals alongside mid-term goals, all supported by concrete, actionable steps."
+      },
+      "correct": [
+        "D"
+      ],
+      "explanation": "D. Đặt mục tiêu ngắn hạn song song trung hạn, kèm các bước hành động cụ thể.\nKế hoạch nghề nghiệp hiệu quả cần lộ trình khả thi theo từng chặng và có việc làm cụ thể đo lường được.",
+      "raw_term": "When constructing a comprehensive Career Action Plan, what is the most effective method for structuring goals and actions?\nA. Focus exclusively on long-term 20-year goals while ignoring immediate action items.\nB. List as many unmeasured goals as possible without assigning any realistic dates or execution parameters.\nC. Copy the exact action plan of a senior professional to ensure uniform tracking metrics.\nD. Set short-term goals alongside mid-term goals, all supported by concrete, actionable steps.",
+      "raw_definition": "D",
+      "vi_explanation": "D. Đặt mục tiêu ngắn hạn song song trung hạn, kèm các bước hành động cụ thể.\nKế hoạch nghề nghiệp hiệu quả cần lộ trình khả thi theo từng chặng và có việc làm cụ thể đo lường được."
+    },
+    {
+      "id": "SSG105_051",
+      "index": 51,
+      "question": "How are \"hard skills\" distinct from \"soft skills\"?",
+      "options": {
+        "A": "Hard skills are difficult to learn, while soft skills can be mastered in a single afternoon workshop.",
+        "B": "Hard skills apply only to physical manufacturing, while soft skills apply exclusively to office roles.",
+        "C": "Hard skills are technical or specialized I abilities, abilities, while while soft skills are general, transferable traits like teamwork.",
+        "D": "Hard skills disappear over time, while soft skills remain permanently fixed without any practice."
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Kỹ năng cứng là năng lực chuyên môn kỹ thuật; kỹ năng mềm là phẩm chất chung như làm việc nhóm.\nHard skills gắn với chuyên môn nghề nghiệp cụ thể, còn soft skills linh hoạt áp dụng được ở nhiều môi trường.",
+      "raw_term": "How are \"hard skills\" distinct from \"soft skills\"?\nA. Hard skills are difficult to learn, while soft skills can be mastered in a single afternoon workshop.\nB. Hard skills apply only to physical manufacturing, while soft skills apply exclusively to office roles.\nC. Hard skills are technical or specialized I abilities, abilities, while while soft skills are general, transferable traits like teamwork.\nD. Hard skills disappear over time, while soft skills remain permanently fixed without any practice.",
+      "raw_definition": "C\n(Hard skills: Kỹ năng chuyên môn, kỹ thuật, có thể đo lường — ví dụ: lập trình, kế toán, phân tích dữ liệu.\nSoft skills: Kỹ năng chung và có thể áp dụng ở nhiều công việc — ví dụ: giao tiếp, teamwork, lãnh đạo.)",
+      "vi_explanation": "C. Kỹ năng cứng là năng lực chuyên môn kỹ thuật; kỹ năng mềm là phẩm chất chung như làm việc nhóm.\nHard skills gắn với chuyên môn nghề nghiệp cụ thể, còn soft skills linh hoạt áp dụng được ở nhiều môi trường."
+    },
+    {
+      "id": "SSG105_052",
+      "index": 52,
+      "question": "If a drafted résumé contains excessive abbreviations, personal lifestyle details, expected salary, and spans over three pages for an entry-level role, which revisions should be prioritized?",
+      "options": {
+        "A": "Remove personal details, eliminate salary expectations, expand abbreviations, and condense to 1-2 pages.",
+        "B": "Keep the content identical but change the font to an ornate style to attract visual attention.",
+        "C": "Remove contact information to preserve privacy, and add a detailed physical description instead.",
+        "D": "Keep the three-page structure but append a comprehensive list of all high school coursework."
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Bỏ chi tiết đời tư, bỏ mức lương mong muốn, viết rõ chữ viết tắt và rút gọn còn 1–2 trang.\nCV cho vị trí mới ra trường cần súc tích, chuyên nghiệp và chỉ giữ thông tin phục vụ trực tiếp công việc.",
+      "raw_term": "If a drafted résumé contains excessive abbreviations, personal lifestyle details, expected salary, and spans over three pages for an entry-level role, which revisions should be prioritized?\nA. Remove personal details, eliminate salary expectations, expand abbreviations, and condense to 1-2 pages.\nB. Keep the content identical but change the font to an ornate style to attract visual attention.\nC. Remove contact information to preserve privacy, and add a detailed physical description instead.\nD. Keep the three-page structure but append a comprehensive list of all high school coursework.",
+      "raw_definition": "A",
+      "vi_explanation": "A. Bỏ chi tiết đời tư, bỏ mức lương mong muốn, viết rõ chữ viết tắt và rút gọn còn 1–2 trang.\nCV cho vị trí mới ra trường cần súc tích, chuyên nghiệp và chỉ giữ thông tin phục vụ trực tiếp công việc."
+    },
+    {
+      "id": "SSG105_053",
+      "index": 53,
+      "question": "Which statement expresses high emotional intelligence?",
+      "options": {
+        "A": "\"They are disrespecting me.\"",
+        "B": "\"Why am I so bad at this?\"",
+        "C": "\"I feel unheard when I'm interrupted during meetings.\"",
+        "D": "\"You always ignore my input\"",
+        "E": "\"I'm fine\""
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. \"Mình cảm thấy không được lắng nghe khi bị ngắt lời trong cuộc họp.\"\nSử dụng câu nói ngôi \"tôi\" (I-statement) diễn đạt cảm xúc bình tĩnh, nêu rõ hành vi gây ảnh hưởng thay vì công kích hay kìm nén.",
+      "raw_term": "Which statement expresses high emotional intelligence?\nA. \"They are disrespecting me.\"\nB. \"Why am I so bad at this?\"\nC. \"I feel unheard when I'm interrupted during meetings.\"\nD. \"You always ignore my input\"\nE. \"I'm fine\"",
+      "raw_definition": "C",
+      "vi_explanation": "C. \"Mình cảm thấy không được lắng nghe khi bị ngắt lời trong cuộc họp.\"\nSử dụng câu nói ngôi \"tôi\" (I-statement) diễn đạt cảm xúc bình tĩnh, nêu rõ hành vi gây ảnh hưởng thay vì công kích hay kìm nén."
+    },
+    {
+      "id": "SSG105_054",
+      "index": 54,
+      "question": "What is NOT a result of high emotional intelligence?",
+      "options": {
+        "A": "An ability to make sound decisions",
+        "B": "Better relationships",
+        "C": "Stronger collaboration",
+        "D": "No negative emotions",
+        "E": "A high level of empathy"
+      },
+      "correct": [
+        "D"
+      ],
+      "explanation": "D. \"Không bao giờ có cảm xúc tiêu cực\" là điều KHÔNG ĐÚNG.\nNgười có trí tuệ cảm xúc cao vẫn có cảm xúc tiêu cực, điểm khác biệt là họ nhận diện và điều tiết chúng tốt hơn.",
+      "raw_term": "What is NOT a result of high emotional intelligence?\nA. An ability to make sound decisions\nB. Better relationships\nC. Stronger collaboration\nD. No negative emotions\nE. A high level of empathy",
+      "raw_definition": "D",
+      "vi_explanation": "D. \"Không bao giờ có cảm xúc tiêu cực\" là điều KHÔNG ĐÚNG.\nNgười có trí tuệ cảm xúc cao vẫn có cảm xúc tiêu cực, điểm khác biệt là họ nhận diện và điều tiết chúng tốt hơn."
+    },
+    {
+      "id": "SSG105_055",
+      "index": 55,
+      "question": "According to the \"Five Key Drivers\", how does team size affect group cohesiveness?",
+      "options": {
+        "A": "Bigger teams lead to higher satisfaction.",
+        "B": "Bigger teams lead to lower satisfaction and more conflict",
+        "C": "Size does not affect cohesiveness",
+        "D": "Bigger teams make entry harder and increase status"
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Nhóm càng đông càng dễ giảm mức độ hài lòng và phát sinh nhiều xung đột hơn.\nQuy mô lớn làm khó giao tiếp đồng đều, giảm sự gắn bó và dễ chia rẽ nội bộ.",
+      "raw_term": "According to the \"Five Key Drivers\", how does team size affect group cohesiveness?\nA. Bigger teams lead to higher satisfaction.\nB. Bigger teams lead to lower satisfaction and more conflict\nC. Size does not affect cohesiveness\nD. Bigger teams make entry harder and increase status",
+      "raw_definition": "B",
+      "vi_explanation": "B. Nhóm càng đông càng dễ giảm mức độ hài lòng và phát sinh nhiều xung đột hơn.\nQuy mô lớn làm khó giao tiếp đồng đều, giảm sự gắn bó và dễ chia rẽ nội bộ."
+    },
+    {
+      "id": "SSG105_056",
+      "index": 56,
+      "question": "What percentage of Fortune 1000 companies use self-managing teams?",
+      "options": {
+        "A": "9%.",
+        "B": "60%.",
+        "C": "79%.",
+        "D": "91%"
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. 79%.\nTheo số liệu thống kê trong giáo trình về động lực nhóm (Five Key Drivers), 79% công ty trong danh sách Fortune 1000 áp dụng mô hình nhóm tự quản (self-managing teams).",
+      "raw_term": "What percentage of Fortune 1000 companies use self-managing teams?\nA. 9%.\nB. 60%.\nC. 79%.\nD. 91%",
+      "raw_definition": "C",
+      "vi_explanation": "C. 79%.\nTheo số liệu thống kê trong giáo trình về động lực nhóm (Five Key Drivers), 79% công ty trong danh sách Fortune 1000 áp dụng mô hình nhóm tự quản (self-managing teams)."
+    },
+    {
+      "id": "SSG105_057",
+      "index": 57,
+      "question": "When a speaker manages facts, ideas, or points of view to deliberately play upon the audience's inherent insecurities or fears to their own distinct advantage, what unethical practice are they committing?",
+      "options": {
+        "A": "Coercion",
+        "B": "Deception",
+        "C": "Manipulation",
+        "D": "Bribery"
+      },
+      "correct": [
+        "C"
+      ],
+      "explanation": "C. Thao túng tâm lý (Manipulation).\nLợi dụng nỗi sợ hoặc sự bất an của người nghe để trục lợi cho bản thân là hành vi thao túng phi đạo đức.",
+      "raw_term": "When a speaker manages facts, ideas, or points of view to deliberately play upon the audience's inherent insecurities or fears to their own distinct advantage, what unethical practice are they committing?\nA. Coercion\nB. Deception\nC. Manipulation\nD. Bribery",
+      "raw_definition": "C",
+      "vi_explanation": "C. Thao túng tâm lý (Manipulation).\nLợi dụng nỗi sợ hoặc sự bất an của người nghe để trục lợi cho bản thân là hành vi thao túng phi đạo đức."
+    },
+    {
+      "id": "SSG105_058",
+      "index": 58,
+      "question": "What is the primary purpose of a persuasive presentation?",
+      "options": {
+        "A": "To create an engaging conversation that attract the audience while sparking curiosity.",
+        "B": "To influence the audience's beliefs, attitudes, or actions through carefully structured arguments and appeals.",
+        "C": "To provide controversial information and allow the audience to draw their conclusions independently.",
+        "D": "To narrate a compelling personal story that resonates emotionally with the audience without necessarily requiring action."
+      },
+      "correct": [
+        "B"
+      ],
+      "explanation": "B. Tác động đến niềm tin, thái độ hoặc hành động của người nghe qua lập luận chặt chẽ.\nMục tiêu cốt lõi của bài thuyết trình thuyết phục (Persuasive presentation) là khiến khán giả thay đổi quan điểm hoặc hành động theo hướng đề xuất.",
+      "raw_term": "What is the primary purpose of a persuasive presentation?\nA. To create an engaging conversation that attract the audience while sparking curiosity.\nB. To influence the audience's beliefs, attitudes, or actions through carefully structured arguments and appeals.\nC. To provide controversial information and allow the audience to draw their conclusions independently.\nD. To narrate a compelling personal story that resonates emotionally with the audience without necessarily requiring action.",
+      "raw_definition": "B",
+      "vi_explanation": "B. Tác động đến niềm tin, thái độ hoặc hành động của người nghe qua lập luận chặt chẽ.\nMục tiêu cốt lõi của bài thuyết trình thuyết phục (Persuasive presentation) là khiến khán giả thay đổi quan điểm hoặc hành động theo hướng đề xuất."
+    },
+    {
+      "id": "SSG105_059",
+      "index": 59,
+      "question": "What is the main problem with the following excerpt from the meeting minutes?\n\"Trang presented a wonderful, highly creative idea for the club's Gala dinner. Unsurprisingly, Tuan immediately started whining about the budget and shut down her ideas in a really rude, insensitive tone. He tried to force the team to buy cheap food from a local buffet, which would make our club look incredibly unprofessional to the whole university.\"",
+      "options": {
+        "A": "Introducing editorial bias or emotion",
+        "B": "Lack of \"next-step\" mechanics",
+        "C": "Total ambiguity",
+        "D": "Over-detailing",
+        "E": "Informal language"
+      },
+      "correct": [
+        "A"
+      ],
+      "explanation": "A. Đưa cảm xúc chủ quan và thiên kiến cá nhân vào biên bản họp.\nBiên bản họp (Meeting minutes) phải trung lập, khách quan; dùng từ miệt thị như \"whining\", \"rude\" là sai nguyên tắc.",
+      "raw_term": "What is the main problem with the following excerpt from the meeting minutes?\n\"Trang presented a wonderful, highly creative idea for the club's Gala dinner. Unsurprisingly, Tuan immediately started whining about the budget and shut down her ideas in a really rude, insensitive tone. He tried to force the team to buy cheap food from a local buffet, which would make our club look incredibly unprofessional to the whole university.\"\nA. Introducing editorial bias or emotion\nB. Lack of \"next-step\" mechanics\nC. Total ambiguity\nD. Over-detailing\nE. Informal language",
+      "raw_definition": "A",
+      "vi_explanation": "A. Đưa cảm xúc chủ quan và thiên kiến cá nhân vào biên bản họp.\nBiên bản họp (Meeting minutes) phải trung lập, khách quan; dùng từ miệt thị như \"whining\", \"rude\" là sai nguyên tắc."
+    },
+    {
+      "id": "SSG105_060",
+      "index": 60,
+      "question": "In which of these examples is a group meeting unnecessary?",
+      "options": {
+        "A": "A student group changes the entire direction of their social project mid-way through.",
+        "B": "A corporate team launches a major quarterly initiative.",
+        "C": "The engineering team refuses to build a feature because it takes too long, while the marketing team insists it is vital for the launch.",
+        "D": "A team needs to create a list of potential sponsors for a charity gala.",
+        "E": "Drafting a proposal for the group project."
+      },
+      "correct": [
+        "E"
+      ],
+      "explanation": "E. Tự soạn bản thảo đề xuất cho dự án nhóm.\nViệc soạn nháp văn bản có thể làm cá nhân hoặc chia việc online, không cần tụ họp cả nhóm mất thời gian như giải quyết bất đồng hay đổi hướng dự án.",
+      "raw_term": "In which of these examples is a group meeting unnecessary?\nA. A student group changes the entire direction of their social project mid-way through.\nB. A corporate team launches a major quarterly initiative.\ntoo long, while the marketing team insists C. The engineering team refuses to build a feature because it takes uild a feature because it takes too long, while it is vital for the launch.\nD. A team needs to create a list of potential sponsors for a charity gala.\nE. Drafting a proposal for the group project.",
+      "raw_definition": "E",
+      "vi_explanation": "E. Tự soạn bản thảo đề xuất cho dự án nhóm.\nViệc soạn nháp văn bản có thể làm cá nhân hoặc chia việc online, không cần tụ họp cả nhóm mất thời gian như giải quyết bất đồng hay đổi hướng dự án."
+    }
+  ]
+}

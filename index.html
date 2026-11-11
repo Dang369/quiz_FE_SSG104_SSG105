@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#fdf4f7">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>SSG Quiz Hub • Ôn Tập SSG104 &amp; SSG105 (utnhodangthuong)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <style>
+    :root {
+      --bg-main: #fdf4f7;
+      --bg-card: #ffffff;
+      --bg-card-alt: #fcebf1;
+      --border-color: #f3d1de;
+      --text-primary: #2d1622;
+      --text-secondary: #6d4859;
+      --text-muted: #936c7e;
+      --accent: #db2777;
+      --accent-hover: #be185d;
+      --accent-soft: #fdf2f8;
+      --accent-border: #fbcfe8;
+      --accent-text: #be185d;
+      --header-bg: rgba(255, 255, 255, 0.94);
+      --card-shadow: 0 6px 20px -4px rgba(190, 24, 93, 0.08);
+      --progress-track: #fad7e6;
+    }
+
+    html.dark {
+      --bg-main: #1b1018;
+      --bg-card: #261722;
+      --bg-card-alt: #311e2c;
+      --border-color: #4a2c41;
+      --text-primary: #fdf2f8;
+      --text-secondary: #e5c7d7;
+      --text-muted: #b48da2;
+      --accent: #f472b6;
+      --accent-hover: #ec4899;
+      --accent-soft: rgba(244, 114, 182, 0.14);
+      --accent-border: rgba(244, 114, 182, 0.35);
+      --accent-text: #f9a8d4;
+      --header-bg: rgba(38, 23, 34, 0.94);
+      --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.42);
+      --progress-track: rgba(255, 255, 255, 0.10);
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-family: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .card-surface {
+      background-color: var(--bg-card);
+      border-color: var(--border-color);
+      box-shadow: var(--card-shadow);
+    }
+
+    .card-alt {
+      background-color: var(--bg-card-alt);
+      border-color: var(--border-color);
+    }
+
+    .header-bar {
+      background-color: var(--header-bg);
+      border-color: var(--border-color);
+    }
+
+    .accent-pill {
+      background-color: var(--accent-soft);
+      border-color: var(--accent-border);
+      color: var(--accent-text);
+    }
+
+    .progress-track {
+      background-color: var(--progress-track);
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .card-action-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .text-main { color: var(--text-primary); }
+    .text-sec { color: var(--text-secondary); }
+    .text-mut { color: var(--text-muted); }
+
+    .fade-in {
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+
+  <!-- TOP HEADER -->
+  <header class="w-full border-b header-bar sticky top-0 z-30 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-2">
+      <div class="flex items-center space-x-2.5 cursor-pointer select-none" onclick="app.goHome()">
+        <div class="w-9 h-9 rounded-xl bg-pink-600 dark:bg-pink-500 text-white flex items-center justify-center text-lg shadow-sm shrink-0">
+          🌸
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight text-pink-600 dark:text-pink-400">SSG Quiz Hub</h1>
+          <p class="text-[11px] text-sec hidden sm:block">Ôn tập thực chiến cho utnhodangthuong • Hồng Nhạt Dịu Mắt</p>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <button onclick="app.openSearch()"
+          class="px-3 py-1.5 rounded-xl text-xs font-semibold card-alt border flex items-center gap-1.5 hover:border-pink-500 dark:hover:border-pink-400 transition">
+          <span>🔍</span>
+          <span class="hidden sm:inline">Tra cứu</span>
+        </button>
+
+        <button onclick="app.toggleTheme()" id="theme-btn"
+          class="px-3 py-1.5 rounded-xl text-xs font-semibold card-alt border flex items-center gap-1.5 hover:border-pink-500 dark:hover:border-pink-400 transition">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-label" class="hidden sm:inline">Hồng Đêm</span>
+        </button>
+
+        <div class="text-xs px-3 py-1.5 rounded-xl accent-pill border font-semibold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span id="total-badge">2 Đề • 412 Câu</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================================================= -->
+  <!-- MÀN HÌNH 1: TRANG CHỦ CHỌN BỘ ĐỀ                  -->
+  <!-- ================================================= -->
+  <main id="screen-home" class="w-full max-w-4xl px-4 py-6 sm:py-8 fade-in flex-1">
+    <div class="mb-6">
+      <h2 class="text-xl sm:text-2xl font-bold text-main">📚 Chào utnhodangthuong, chọn bộ đề để ôn tập</h2>
+      <p class="text-xs sm:text-sm text-sec mt-1">
+        Giữ nguyên 412 câu khớp bộ gốc kèm giải thích tiếng Việt ngắn gọn dưới từng đáp án, chia đúng 8 mảng kiến thức.
+      </p>
+    </div>
+
+    <div id="courses-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5"></div>
+
+    <!-- Quick Tip Box -->
+    <div class="mt-8 p-4 rounded-2xl card-surface border text-xs text-sec flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div class="flex items-start sm:items-center gap-2.5">
+        <span class="text-lg">💡</span>
+        <span>Tiến độ học và danh sách câu làm sai của <strong>utnhodangthuong</strong> được tự động lưu trên thiết bị này. Trên PC có thể dùng phím <kbd class="px-1.5 py-0.5 rounded card-alt border font-mono">1-6</kbd> và <kbd class="px-1.5 py-0.5 rounded card-alt border font-mono">←</kbd> <kbd class="px-1.5 py-0.5 rounded card-alt border font-mono">→</kbd> để làm siêu nhanh!</span>
+      </div>
+      <button onclick="app.resetAllProgress()" class="text-[11px] text-rose-600 dark:text-rose-400 font-medium hover:underline shrink-0 self-end sm:self-center">
+        Xóa tiến độ lưu tạm
+      </button>
+    </div>
+  </main>
+
+  <!-- ================================================= -->
+  <!-- MÀN HÌNH 2: DANH SÁCH 8 MẢNG KIẾN THỨC            -->
+  <!-- ================================================= -->
+  <main id="screen-course" class="w-full max-w-4xl px-4 py-5 sm:py-8 hidden fade-in flex-1">
+    <div class="flex items-center justify-between mb-5 gap-2">
+      <button onclick="app.goHome()" class="px-3 py-1.5 rounded-xl card-surface border text-xs font-semibold text-sec hover:text-pink-600 dark:hover:text-pink-400 hover:border-pink-500 transition flex items-center gap-1.5">
+        <span>←</span>
+        <span>Đổi bộ đề khác</span>
+      </button>
+      <div class="flex items-center gap-1.5 flex-wrap justify-end">
+        <button onclick="app.openCourse('SSG104')" id="switch-SSG104" class="px-2.5 py-1 rounded-lg card-alt border text-xs font-semibold text-sec hover:border-pink-400 transition">SSG104</button>
+        <button onclick="app.openCourse('SSG105')" id="switch-SSG105" class="px-2.5 py-1 rounded-lg card-alt border text-xs font-semibold text-sec hover:border-pink-400 transition">SSG105</button>
+        <button onclick="app.openCourse('ALL')" id="switch-ALL" class="px-2.5 py-1 rounded-lg card-alt border text-xs font-semibold text-sec hover:border-pink-400 transition">Tổng hợp</button>
+        <span class="text-xs font-bold px-3 py-1 rounded-lg accent-pill border" id="course-badge">SSG104</span>
+      </div>
+    </div>
+
+    <div class="card-surface border rounded-2xl p-5 sm:p-6 mb-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold text-main" id="course-title">SSG104</h2>
+          <p class="text-xs sm:text-sm text-sec mt-1" id="course-subtitle"></p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="app.startMistakesQuiz()" id="btn-mistakes"
+            class="px-4 py-2.5 rounded-xl bg-rose-50 dark:bg-rose-500/15 hover:bg-rose-100 dark:hover:bg-rose-500/25 border border-rose-200 dark:border-rose-500/40 text-rose-700 dark:text-rose-300 text-xs font-bold flex items-center gap-2 transition">
+            <span>⚠️ Ôn câu làm sai (<span id="course-mistake-count">0</span>)</span>
+          </button>
+
+          <button onclick="app.startAllSequential()"
+            class="px-4 py-2.5 rounded-xl card-alt border text-main hover:border-pink-500 text-xs font-bold flex items-center gap-2 transition">
+            <span>📖 Làm tuần tự hết đề</span>
+          </button>
+
+          <button onclick="app.startAllShuffled()"
+            class="px-4 py-2.5 rounded-xl btn-primary text-xs font-bold flex items-center gap-2 shadow-sm transition">
+            <span>🔀 Xáo trộn tất cả</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-sec">
+        Phân loại theo 8 mảng kiến thức
+      </h3>
+      <span class="text-xs text-mut" id="course-total-sections"></span>
+    </div>
+
+    <div id="sections-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pb-10"></div>
+  </main>
+
+  <!-- ================================================= -->
+  <!-- MÀN HÌNH 3: GIAO DIỆN LÀM CÂU HỎI TỪNG CÂU        -->
+  <!-- ================================================= -->
+  <main id="screen-quiz" class="w-full max-w-3xl px-3 sm:px-4 py-4 sm:py-6 hidden fade-in flex-1 flex flex-col">
+    <div class="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+      <button onclick="app.backToCourse()" class="px-3 py-1.5 rounded-xl card-surface border text-xs font-semibold text-sec hover:text-pink-600 dark:hover:text-pink-400 hover:border-pink-500 transition flex items-center gap-1">
+        <span>←</span>
+        <span>Bộ câu hỏi</span>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <span class="text-[11px] sm:text-xs font-semibold px-2.5 py-1 rounded-lg accent-pill border truncate max-w-[170px] sm:max-w-xs" id="quiz-section-badge">
+          Phần 1
+        </span>
+        <button onclick="app.openPillDrawer()" class="px-2.5 py-1 rounded-lg card-surface border text-xs font-semibold text-sec hover:border-pink-500 dark:hover:border-pink-400 transition" title="Chọn nhanh câu hỏi">
+          🔢 <span id="quiz-counter-top">1/50</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="w-full h-2 rounded-full progress-track overflow-hidden mb-4">
+      <div id="quiz-progress-bar" class="h-full bg-pink-600 dark:bg-pink-400 transition-all duration-300" style="width: 0%"></div>
+    </div>
+
+    <div class="card-surface border rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 flex-1">
+      <div class="flex items-center justify-between pb-3 mb-4 border-b border-opacity-60" style="border-color: var(--border-color)">
+        <div class="flex items-center gap-2 text-xs">
+          <span class="font-bold text-pink-600 dark:text-pink-400" id="q-number-label">Câu 1</span>
+          <span id="q-multi-badge" class="hidden px-2 py-0.5 rounded accent-pill border text-[11px] font-bold">
+            Chọn nhiều đáp án
+          </span>
+          <span class="text-mut text-[11px]" id="q-id-ref">SSG104_001</span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="app.toggleBookmark()" id="btn-bookmark" class="px-2.5 py-1 rounded-lg card-alt border text-xs font-semibold text-sec hover:border-pink-500 dark:hover:border-pink-400 transition" title="Đánh dấu câu này">
+            ☆
+          </button>
+          <button onclick="app.openImageModal()" id="btn-zoom-img" class="hidden px-2.5 py-1 rounded-lg card-alt border text-xs font-semibold text-sec hover:text-pink-600 dark:hover:text-pink-400 hover:border-pink-500 transition flex items-center gap-1">
+            <span>🖼️</span>
+            <span class="hidden sm:inline">Phóng to ảnh</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Inline Image for 19 visual questions -->
+      <div id="inline-image-box" class="hidden mb-4 rounded-xl overflow-hidden border bg-white/80 dark:bg-black/30 p-2" style="border-color: var(--border-color)">
+        <img id="inline-image-el" src="" alt="Hình minh họa câu hỏi" class="w-full max-h-72 object-contain mx-auto cursor-zoom-in rounded-lg" onclick="app.openImageModal()">
+      </div>
+
+      <div class="mb-5">
+        <h3 id="question-text" class="text-base sm:text-lg font-semibold text-main leading-relaxed whitespace-pre-line">
+          Đang tải câu hỏi...
+        </h3>
+      </div>
+
+      <div id="options-list" class="space-y-2.5 sm:space-y-3 mb-5"></div>
+
+      <div id="multi-submit-wrap" class="hidden mb-5">
+        <button onclick="app.submitMultiChoice()" class="w-full py-3 rounded-xl btn-primary font-bold text-sm transition shadow-sm">
+          ✓ Kiểm tra các đáp án đã chọn
+        </button>
+      </div>
+
+      <!-- Explanation Box -->
+      <div id="explanation-box" class="hidden rounded-xl p-4 border text-xs sm:text-sm space-y-2 mb-4">
+        <div id="explanation-status" class="font-bold text-sm"></div>
+        <div id="explanation-vi-detail" class="text-main leading-relaxed pt-1.5 border-t whitespace-pre-line" style="border-color: var(--border-color)"></div>
+      </div>
+
+      <div id="peek-wrap" class="flex items-center justify-between pt-2">
+        <button onclick="app.revealAnswer()" class="text-xs font-medium text-mut hover:text-pink-600 dark:hover:text-pink-400 transition">
+          💡 Xem đáp án &amp; giải thích cho utnhodangthuong
+        </button>
+        <button onclick="app.resetCurrentSection()" class="text-xs font-medium text-mut hover:text-rose-600 dark:hover:text-rose-400 transition">
+          🔄 Làm lại bộ này
+        </button>
+      </div>
+    </div>
+
+    <div class="w-full pt-2 pb-6">
+      <div class="max-w-3xl mx-auto flex items-center justify-between gap-3">
+        <button onclick="app.prevQuestion()" id="btn-prev"
+          class="flex-1 sm:flex-initial px-4 py-3 sm:py-2.5 rounded-xl card-alt border text-xs sm:text-sm font-semibold text-sec hover:text-pink-600 dark:hover:text-pink-400 disabled:opacity-35 transition">
+          ← Câu trước
+        </button>
+
+        <div class="hidden sm:flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-xs px-1" id="desktop-pills"></div>
+
+        <button onclick="app.nextQuestion()" id="btn-next"
+          class="flex-1 sm:flex-initial px-5 py-3 sm:py-2.5 rounded-xl btn-primary text-xs sm:text-sm font-bold shadow-sm transition disabled:opacity-40">
+          Câu tiếp theo →
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================================================= -->
+  <!-- MÀN HÌNH 4: TRA CỨU NHANH 412 CÂU                 -->
+  <!-- ================================================= -->
+  <main id="screen-search" class="w-full max-w-4xl px-4 py-6 hidden fade-in flex-1">
+    <div class="flex items-center justify-between mb-4 gap-2">
+      <button onclick="app.goHome()" class="px-3 py-1.5 rounded-xl card-surface border text-xs font-semibold text-sec hover:text-pink-600 hover:border-pink-500 transition flex items-center gap-1.5">
+        <span>←</span>
+        <span>Về trang chủ</span>
+      </button>
+      <span class="text-xs text-mut" id="search-count-label">412 câu sẵn sàng tra cứu</span>
+    </div>
+
+    <div class="card-surface border rounded-2xl p-4 sm:p-5 space-y-4">
+      <div class="flex flex-col sm:flex-row gap-2.5">
+        <input id="search-input" oninput="app.renderSearchResults()" type="text"
+          placeholder="Nhập từ khóa câu hỏi, đáp án hoặc giải thích (vd: Maslow, Tuckman, Brazil, plagiarism)..."
+          class="flex-1 px-4 py-2.5 rounded-xl card-alt border text-sm text-main outline-none focus:border-pink-500">
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <button onclick="app.setSearchFilter('ALL')" id="sf-ALL" class="px-3 py-2 rounded-xl text-xs font-bold btn-primary">Tất cả</button>
+          <button onclick="app.setSearchFilter('SSG104')" id="sf-SSG104" class="px-3 py-2 rounded-xl text-xs font-bold card-alt border text-sec">SSG104</button>
+          <button onclick="app.setSearchFilter('SSG105')" id="sf-SSG105" class="px-3 py-2 rounded-xl text-xs font-bold card-alt border text-sec">SSG105</button>
+          <button onclick="app.setSearchFilter('IMG')" id="sf-IMG" class="px-3 py-2 rounded-xl text-xs font-bold card-alt border text-sec">🖼️ Có ảnh</button>
+        </div>
+      </div>
+
+      <div id="search-results" class="space-y-2.5 max-h-[68vh] overflow-y-auto pr-1"></div>
+    </div>
+  </main>
+
+  <!-- ================================================= -->
+  <!-- MODAL 1: PHÓNG TO ẢNH MINH HỌA                    -->
+  <!-- ================================================= -->
+  <div id="image-modal" class="fixed inset-0 bg-slate-900/65 dark:bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-6" onclick="if(event.target===this) app.closeImageModal()">
+    <div class="card-surface border rounded-2xl max-w-4xl w-full p-4 sm:p-5 shadow-2xl flex flex-col max-h-[92vh]">
+      <div class="flex items-center justify-between pb-3 border-b mb-3" style="border-color: var(--border-color)">
+        <div>
+          <h4 class="font-bold text-sm text-main">🖼️ Ảnh Minh Họa (<span id="modal-image-label">SSG104_001</span>)</h4>
+          <p class="text-[11px] text-mut">Ảnh được lưu trực tiếp trong thư mục web cho utnhodangthuong</p>
+        </div>
+        <button onclick="app.closeImageModal()" class="w-8 h-8 rounded-lg card-alt border flex items-center justify-center text-sec hover:text-main">✕</button>
+      </div>
+      <div class="overflow-auto flex-1 flex items-center justify-center bg-white/80 dark:bg-black/40 rounded-xl p-2">
+        <img id="modal-image-el" src="" alt="Ảnh phóng to" class="max-w-full max-h-[75vh] object-contain rounded">
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- MODAL 2: BẢNG CHỌN NHANH CÂU HỎI                  -->
+  <!-- ================================================= -->
+  <div id="pill-drawer" class="fixed inset-0 bg-slate-900/65 dark:bg-black/80 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4" onclick="if(event.target===this) app.closePillDrawer()">
+    <div class="card-surface border rounded-t-2xl sm:rounded-2xl max-w-lg w-full p-5 shadow-2xl max-h-[80vh] flex flex-col">
+      <div class="flex items-center justify-between pb-3 border-b mb-4" style="border-color: var(--border-color)">
+        <h4 class="font-bold text-sm text-main">🔢 Chọn nhanh câu hỏi</h4>
+        <button onclick="app.closePillDrawer()" class="w-8 h-8 rounded-lg card-alt border flex items-center justify-center text-sec">✕</button>
+      </div>
+      <div id="drawer-pills-grid" class="grid grid-cols-6 sm:grid-cols-8 gap-2 overflow-y-auto p-1"></div>
+    </div>
+  </div>
+
+  <script src="data/ssg104.js"></script>
+  <script src="data/ssg105.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
