@@ -390,7 +390,12 @@ const app = {
   },
 
   startAllSequential() {
-    const allQs = this.getAllCourseQuestions(this.currentCourseCode);
+    const allQs = [...this.getAllCourseQuestions(this.currentCourseCode)].sort((a, b) => {
+      const ca = a.id.startsWith('SSG105_') ? 1 : 0;
+      const cb = b.id.startsWith('SSG105_') ? 1 : 0;
+      if (ca !== cb) return ca - cb;
+      return (a.index || 0) - (b.index || 0);
+    });
     let resumeIdx = allQs.findIndex((q) => !this.state.answers[q.id]);
     if (resumeIdx === -1) resumeIdx = 0;
     this.startCustomList(`📖 Làm tuần tự (${allQs.length} câu)`, allQs, resumeIdx);
