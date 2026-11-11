@@ -280,8 +280,9 @@
       </div>
 
       <!-- Inline Image for 19 visual questions -->
-      <div id="inline-image-box" class="hidden mb-4 rounded-xl overflow-hidden border bg-white/80 dark:bg-black/30 p-2" style="border-color: var(--border-color)">
-        <img id="inline-image-el" src="" alt="Hình minh họa câu hỏi" class="w-full max-h-72 object-contain mx-auto cursor-zoom-in rounded-lg" onclick="app.openImageModal()">
+      <div id="inline-image-box" class="hidden mb-4 rounded-xl overflow-hidden border bg-white/80 dark:bg-black/30 p-3 text-center" style="border-color: var(--border-color)">
+        <img id="inline-image-el" src="" alt="Hình minh họa câu hỏi" class="max-w-full max-h-96 object-contain mx-auto cursor-zoom-in rounded-lg" onclick="app.openImageModal()">
+        <p class="text-[11px] text-mut mt-1.5">Bấm vào ảnh để phóng to xem rõ chữ</p>
       </div>
 
       <div class="mb-5">
@@ -302,6 +303,10 @@
       <div id="explanation-box" class="hidden rounded-xl p-4 border text-xs sm:text-sm space-y-2 mb-4">
         <div id="explanation-status" class="font-bold text-sm"></div>
         <div id="explanation-vi-detail" class="text-main leading-relaxed pt-1.5 border-t whitespace-pre-line" style="border-color: var(--border-color)"></div>
+        <div id="exp-image-box" class="hidden pt-2 text-center">
+          <img id="exp-image-el" src="" alt="Ảnh slide tham khảo" class="max-w-full max-h-96 object-contain mx-auto cursor-zoom-in rounded-lg border bg-white/90 p-1" style="border-color: var(--border-color)" onclick="app.openImageModal()">
+          <p class="text-[11px] text-mut mt-1">Ảnh slide tham khảo (bấm vào ảnh để phóng to)</p>
+        </div>
       </div>
 
       <div id="peek-wrap" class="flex items-center justify-between pt-2">

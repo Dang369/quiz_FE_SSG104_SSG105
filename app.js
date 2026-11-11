@@ -453,8 +453,9 @@ const app = {
     const inlineImg = document.getElementById('inline-image-el');
     const zoomBtn = document.getElementById('btn-zoom-img');
     const imgUrl = q.image_local || (q.images && q.images[0]) || '';
+    const isQuestionImg = q.has_visual && imgUrl && q.visual_role === 'question';
 
-    if (q.has_visual && imgUrl) {
+    if (isQuestionImg) {
       inlineImg.src = imgUrl;
       inlineBox.classList.remove('hidden');
       zoomBtn.classList.remove('hidden');
@@ -546,8 +547,19 @@ const app = {
 
       document.getElementById('explanation-vi-detail').textContent =
         q.vi_explanation || 'utnhodangthuong có thể xem lại phần tóm tắt kiến thức của câu này nhé.';
+
+      const expImgBox = document.getElementById('exp-image-box');
+      const expImgEl = document.getElementById('exp-image-el');
+      if (q.has_visual && imgUrl && q.visual_role !== 'question') {
+        expImgEl.src = imgUrl;
+        expImgBox.classList.remove('hidden');
+        zoomBtn.classList.remove('hidden');
+      } else {
+        expImgBox.classList.add('hidden');
+      }
     } else {
       expBox.classList.add('hidden');
+      document.getElementById('exp-image-box').classList.add('hidden');
       peekWrap.classList.remove('hidden');
     }
 
