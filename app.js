@@ -451,7 +451,7 @@ const app = {
         : '';
 
     inner.innerHTML = `
-      <img src="${imgSrc}" alt="${this.escapeHtml(p.label)}" ${customSizeAttr} class="${imgSizeCls} object-contain ${isSvg ? 'drop-shadow-sm' : 'sticker-drop'} group-hover:scale-110 transition">
+      <img src="${imgSrc}" alt="${this.escapeHtml(p.label)}" ${customSizeAttr} class="${imgSizeCls} object-contain ${isSvg ? '' : 'sticker-drop'} group-hover:scale-110 transition">
       ${badgeHtml}
     `;
     return inner;
@@ -496,8 +496,12 @@ const app = {
       sp.style.setProperty('--tx', `${tx}px`);
       sp.style.setProperty('--ty', `${ty}px`);
       sp.style.setProperty('--tr', `${tr}deg`);
+      if (fullBurst) {
+        sp.style.opacity = '0';
+        sp.style.animation = 'sparkBurst 1.05s ease-out 0.85s forwards';
+      }
       inner.appendChild(sp);
-      setTimeout(() => sp.remove(), 780);
+      setTimeout(() => sp.remove(), fullBurst ? 2000 : 1120);
     });
   },
 
@@ -507,12 +511,15 @@ const app = {
 
     let holdTimer = null;
     let glideTimer = null;
+    let rafId = null;
     let activePointerId = null;
     let isDragging = false;
     let startX = 0;
     let startY = 0;
     let baseX = 0;
     let baseY = 0;
+    let curDx = 0;
+    let curDy = 0;
     let maxMoved = 0;
     let pointerType = 'mouse';
     let samples = [];
@@ -543,10 +550,21 @@ const app = {
         samples.push({ t: now, x: e.clientX, y: e.clientY });
         if (samples.length > 8) samples.shift();
 
-        const nx = Math.max(-24, Math.min(window.innerWidth - 36, baseX + dx));
-        const ny = Math.max(0, Math.min(window.innerHeight - 36, baseY + dy));
-        wrap.style.left = `${Math.round(nx)}px`;
-        wrap.style.top = `${Math.round(ny)}px`;
+        const minDx = -24 - baseX;
+        const maxDx = window.innerWidth - 36 - baseX;
+        const minDy = -baseY;
+        const maxDy = window.innerHeight - 36 - baseY;
+        curDx = Math.max(minDx, Math.min(maxDx, dx));
+        curDy = Math.max(minDy, Math.min(maxDy, dy));
+
+        if (!rafId) {
+          rafId = requestAnimationFrame(() => {
+            rafId = null;
+            if (isDragging) {
+              wrap.style.transform = `translate3d(${curDx.toFixed(1)}px, ${curDy.toFixed(1)}px, 0)`;
+            }
+          });
+        }
       }
     };
 
@@ -554,10 +572,8 @@ const app = {
       if (activePointerId !== e.pointerId) return;
       const wasDragging = isDragging;
       const moved = maxMoved;
-      const curLeft = parseFloat(wrap.style.left);
-      const curTop = parseFloat(wrap.style.top);
-      const safeLeft = Number.isFinite(curLeft) ? curLeft : baseX;
-      const safeTop = Number.isFinite(curTop) ? curTop : baseY;
+      const safeLeft = wasDragging ? baseX + curDx : parseFloat(wrap.style.left) || baseX;
+      const safeTop = wasDragging ? baseY + curDy : parseFloat(wrap.style.top) || baseY;
 
       // Estimate release inertia from recent movement samples
       let vx = 0;
@@ -577,6 +593,10 @@ const app = {
       cleanup();
 
       if (wasDragging) {
+        wrap.style.transform = '';
+        wrap.style.left = `${Math.round(safeLeft)}px`;
+        wrap.style.top = `${Math.round(safeTop)}px`;
+
         const vw = window.innerWidth || 1;
         const vh = window.innerHeight || 1;
         const clampThrow = (v) => Math.max(-96, Math.min(96, v * 0.12));
@@ -619,6 +639,10 @@ const app = {
 
     const cleanup = () => {
       clearTimeout(holdTimer);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
       holdTimer = null;
       activePointerId = null;
       isDragging = false;
@@ -633,22 +657,32 @@ const app = {
     const activateDrag = () => {
       if (activePointerId === null || isDragging) return;
       isDragging = true;
+      curDx = 0;
+      curDy = 0;
       clearTimeout(glideTimer);
-      wrap.classList.remove('spawned-sticker-wrap', 'sticker-glide-ease', 'sticker-drop-float', 'boing-pop');
 
-      const parent = wrap.parentElement;
-      if (parent && (parent.id === 'side-rail-left' || parent.id === 'side-rail-right')) {
-        const pr = parent.getBoundingClientRect();
-        baseX = pr.left + wrap.offsetLeft;
-        baseY = pr.top + wrap.offsetTop;
-        wrap.style.position = 'fixed';
-        const layer = document.getElementById('spawned-sticker-layer');
-        if (layer) layer.appendChild(wrap);
+      const midFlight = wrap.classList.contains('spawned-fly-ease') || wrap.classList.contains('spawned-fly-init');
+      if (midFlight) {
+        const r = wrap.getBoundingClientRect();
+        baseX = r.left;
+        baseY = r.top;
       } else {
-        baseX = wrap.offsetLeft;
-        baseY = wrap.offsetTop;
+        const parent = wrap.parentElement;
+        if (parent && (parent.id === 'side-rail-left' || parent.id === 'side-rail-right')) {
+          const pr = parent.getBoundingClientRect();
+          baseX = pr.left + wrap.offsetLeft;
+          baseY = pr.top + wrap.offsetTop;
+          wrap.style.position = 'fixed';
+          const layer = document.getElementById('spawned-sticker-layer');
+          if (layer) layer.appendChild(wrap);
+        } else {
+          baseX = wrap.offsetLeft;
+          baseY = wrap.offsetTop;
+        }
       }
 
+      wrap.classList.remove('spawned-fly-init', 'spawned-fly-ease', 'sticker-glide-ease', 'sticker-drop-float', 'boing-pop');
+      wrap.style.transform = '';
       wrap.style.right = 'auto';
       wrap.style.bottom = 'auto';
       wrap.style.left = `${Math.round(baseX)}px`;
@@ -671,6 +705,8 @@ const app = {
       activePointerId = e.pointerId;
       pointerType = e.pointerType || 'mouse';
       isDragging = false;
+      curDx = 0;
+      curDy = 0;
       startX = e.clientX;
       startY = e.clientY;
       samples = [{ t: performance.now(), x: e.clientX, y: e.clientY }];
@@ -756,13 +792,15 @@ const app = {
       fy,
     };
 
+    let trimmedOldest = false;
     if (!this.state.pinnedStickers) this.state.pinnedStickers = [];
     this.state.pinnedStickers.push(newItem);
     if (this.state.pinnedStickers.length > 90) {
       this.state.pinnedStickers.shift();
+      trimmedOldest = true;
     }
     this.saveState();
-    this.renderSpawnedStickers(newItem.uid);
+    this.appendSpawnedSticker(newItem, trimmedOldest);
     if (!silentToast) {
       this.popCuteToast(`${st.label}! Nhảy sang bên ${side === 'left' ? 'trái' : 'phải'} nò ♥`, st.icon);
     }
@@ -777,7 +815,7 @@ const app = {
         if (i === count - 1) {
           this.popCuteToast(`Xả lũ ${count} bé sticker hỗn loạn khắp 2 bên lun nè ✨`, 'fe-sparkles.svg');
         }
-      }, i * 55);
+      }, i * 150);
     }
   },
 
@@ -803,7 +841,91 @@ const app = {
     this.popCuteToast('Đã dọn gọn hết nhãn dán tự do cho iempéee ✨', 'fe-sparkles.svg');
   },
 
-  renderSpawnedStickers(justSpawnedUid = null) {
+  mountSpawnedStickerEl(p, isFreshSpawn, vw, hasWideGutter, gutter) {
+    const layer = document.getElementById('spawned-sticker-layer');
+    if (!layer) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'fixed pointer-events-auto group sticker-draggable' + (isFreshSpawn ? ' spawned-fly-init' : '');
+    wrap.style.zIndex = String(p.zIndex || 26);
+    if (p.opacity !== undefined) wrap.style.opacity = String(p.opacity);
+    if (isFreshSpawn) {
+      wrap.style.setProperty('--fx', `${p.fx || 0}px`);
+      wrap.style.setProperty('--fy', `${p.fy || 40}px`);
+    }
+
+    if (p.freeX !== undefined && p.freeY !== undefined) {
+      wrap.style.left = `${p.freeX}%`;
+      wrap.style.top = `${p.freeY}%`;
+    } else {
+      wrap.style.top = `${p.yPct}%`;
+      if (hasWideGutter) {
+        const usable = Math.max(16, gutter - 126);
+        const pxOffset = Math.round(6 + p.xRatio * usable);
+        if (p.side === 'left') wrap.style.left = `${pxOffset}px`;
+        else wrap.style.right = `${pxOffset}px`;
+      } else {
+        const edgeOffset = Math.round(2 + p.xRatio * 10);
+        if (p.side === 'left') wrap.style.left = `${edgeOffset}px`;
+        else wrap.style.right = `${edgeOffset}px`;
+      }
+    }
+
+    const inner = this.buildStickerInnerEl(p, hasWideGutter);
+    this.attachStickerDismissBtn(inner, p.uid);
+
+    this.enableHoldDrag(wrap, inner, {
+      onTap: () => {
+        this.triggerStickerBoing(wrap);
+        this.popCuteToast(p.toast, p.icon);
+      },
+      onDrop: (freeX, freeY) => {
+        const zIdx = this.getNextStickerZ();
+        p.freeX = freeX;
+        p.freeY = freeY;
+        p.zIndex = zIdx;
+        wrap.style.zIndex = String(zIdx);
+        this.saveState();
+        this.popCuteToast('Đã kéo dán sticker tới chỗ mới nò ✨', p.icon);
+      },
+    });
+
+    if (isFreshSpawn) {
+      this.spawnSparkTrail(inner, true);
+    }
+
+    wrap.appendChild(inner);
+    layer.appendChild(wrap);
+
+    if (isFreshSpawn) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (!wrap.isConnected || wrap.classList.contains('sticker-dragging')) return;
+          wrap.classList.add('spawned-fly-ease');
+          wrap.classList.remove('spawned-fly-init');
+        });
+      });
+      setTimeout(() => {
+        wrap.classList.remove('spawned-fly-ease');
+        wrap.style.willChange = 'auto';
+      }, 1350);
+    }
+  },
+
+  appendSpawnedSticker(newItem, trimmedOldest = false) {
+    const layer = document.getElementById('spawned-sticker-layer');
+    if (!layer) return;
+    this.updateSpawnedClearBtn();
+    if (trimmedOldest && layer.firstElementChild) {
+      layer.firstElementChild.remove();
+    }
+    const vw = window.innerWidth;
+    const hasWideGutter = vw >= 1120;
+    const gutter = Math.max(0, (vw - 928) / 2);
+    this.mountSpawnedStickerEl(newItem, true, vw, hasWideGutter, gutter);
+  },
+
+  renderSpawnedStickers() {
     const layer = document.getElementById('spawned-sticker-layer');
     if (!layer) return;
 
@@ -816,57 +938,7 @@ const app = {
     const gutter = Math.max(0, (vw - 928) / 2);
 
     list.forEach((p) => {
-      const wrap = document.createElement('div');
-      wrap.className = 'fixed pointer-events-auto group sticker-draggable' + (p.uid === justSpawnedUid ? ' spawned-sticker-wrap' : '');
-      wrap.style.zIndex = String(p.zIndex || 26);
-      if (p.opacity !== undefined) wrap.style.opacity = String(p.opacity);
-      if (p.uid === justSpawnedUid) {
-        wrap.style.setProperty('--fx', `${p.fx || 0}px`);
-        wrap.style.setProperty('--fy', `${p.fy || 40}px`);
-      }
-
-      if (p.freeX !== undefined && p.freeY !== undefined) {
-        wrap.style.left = `${p.freeX}%`;
-        wrap.style.top = `${p.freeY}%`;
-      } else {
-        wrap.style.top = `${p.yPct}%`;
-        if (hasWideGutter) {
-          const usable = Math.max(16, gutter - 126);
-          const pxOffset = Math.round(6 + p.xRatio * usable);
-          if (p.side === 'left') wrap.style.left = `${pxOffset}px`;
-          else wrap.style.right = `${pxOffset}px`;
-        } else {
-          const edgeOffset = Math.round(2 + p.xRatio * 10);
-          if (p.side === 'left') wrap.style.left = `${edgeOffset}px`;
-          else wrap.style.right = `${edgeOffset}px`;
-        }
-      }
-
-      const inner = this.buildStickerInnerEl(p, hasWideGutter);
-      this.attachStickerDismissBtn(inner, p.uid);
-
-      this.enableHoldDrag(wrap, inner, {
-        onTap: () => {
-          this.triggerStickerBoing(wrap);
-          this.popCuteToast(p.toast, p.icon);
-        },
-        onDrop: (freeX, freeY) => {
-          const zIdx = this.getNextStickerZ();
-          p.freeX = freeX;
-          p.freeY = freeY;
-          p.zIndex = zIdx;
-          wrap.style.zIndex = String(zIdx);
-          this.saveState();
-          this.popCuteToast('Đã kéo dán sticker tới chỗ mới nò ✨', p.icon);
-        },
-      });
-
-      if (p.uid === justSpawnedUid) {
-        this.spawnSparkTrail(inner, true);
-      }
-
-      wrap.appendChild(inner);
-      layer.appendChild(wrap);
+      this.mountSpawnedStickerEl(p, false, vw, hasWideGutter, gutter);
     });
   },
 
