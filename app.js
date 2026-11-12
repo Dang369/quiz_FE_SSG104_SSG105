@@ -7,20 +7,71 @@ const STORAGE_KEY = 'ssg_quiz_utnhodangthuong_v1';
 const COURSE_META = {
   SSG104: {
     icon: '🎀',
+    sticker: 'stickers/chibi/bunny-heart.png',
+    miniSticker: 'stickers/chibi/gingham-bow.png',
+    cuteBadge: 'Nhiều câu hay nò ♥',
+    heroSticker: 'stickers/chibi/chibi-girl.png',
     name: 'SSG104',
     subtitle: 'Ngân hàng nền tảng • Đủ 19 câu ảnh & 18 đa lựa chọn',
   },
   SSG105: {
     icon: '🌷',
+    sticker: 'stickers/chibi/kitty-bell.png',
+    miniSticker: 'stickers/chibi/daisy-blossom.png',
+    cuteBadge: 'Sweet Day ♥ Tình huống mới',
+    heroSticker: 'stickers/chibi/kitty-crown.png',
     name: 'SSG105',
     subtitle: 'Tình huống thực chiến mới • Không trùng SSG104',
   },
   ALL: {
     icon: '🍓',
+    sticker: 'stickers/chibi/backpack-daisy.png',
+    miniSticker: 'stickers/chibi/kitty-crown.png',
+    cuteBadge: 'Chăm ngoan 10 điểm nè ✨',
+    heroSticker: 'stickers/chibi/study-notebook.png',
     name: 'Tổng Ôn SSG',
     subtitle: 'Gộp 412 câu • Đủ 8 mảng + 19 ảnh + 18 đa lựa chọn',
   },
 };
+
+const STICKER_SHELF = [
+  { file: 'bear-strawberry.png', label: 'Ôm tim cổ vũ', toast: 'Gấu hồng ôm dâu chúc iempéee học siu dzui ♥', icon: 'fe-strawberry.svg' },
+  { file: 'bunny-boba.png', label: 'Trà sữa tiếp sức', toast: 'Uống ngụm trà sữa dâu rùi cày tiếp nò! ✨', icon: 'fe-rabbit-face.svg' },
+  { file: 'kitty-crown.png', label: 'Mèo công chúa', toast: 'iempéee đội vương miện chăm chỉ nè 👑', icon: 'fe-crown.svg' },
+  { file: 'cupcake-cherry.png', label: 'Ngọt ngào mỗi ngày', toast: 'Hôm nay thật ngọt ngào nha Sweet Day ♥', icon: 'fe-cupcake.svg' },
+  { file: 'love-envelope.png', label: 'Thư iu thương', toast: 'Ở đây có ♥ thật nhiều yêu thương ♥ gửi iempéee!', icon: 'fe-love-letter.svg' },
+  { file: 'study-notebook.png', label: 'Sổ tay 10 điểm', toast: 'Ghi nhớ kiến thức nhẹ tênh trong 1 nốt nhạc ✨', icon: 'fe-books.svg' },
+  { file: 'gingham-bow.png', label: 'Nơ hồng đáng iu', toast: 'Xinh xỉu lun á iempéee ơi 🎀', icon: 'fe-ribbon.svg' },
+  { file: 'puppy-star.png', label: 'Thưởng ngôi sao', toast: 'Ôn xong nhớ nghỉ ngơi thật ngoan nò 🌟', icon: 'fe-glowing-star.svg' },
+  { file: 'strawberry-milk.png', label: 'Sữa dâu nạp mood', toast: 'Nạp 100% vitamin đáng yêu liền nè 🍓', icon: 'fe-pink-heart.svg' },
+  { file: 'crown-cloud.png', label: 'Cốc cốc vào học', toast: 'Cốc cốc! Mời iempéee vào học ạ! 👑', icon: 'fe-crown.svg' },
+  { file: 'daisy-blossom.png', label: 'Hoa nở điểm cao', toast: 'Từng câu từng chữ nở hoa điểm A+ nha 🌸', icon: 'fe-blossom.svg' },
+  { file: 'heart-wand.png', label: 'Đũa phép qua môn', toast: 'Úm ba la! Đề SSG dễ ợt với iempéee ✨', icon: 'fe-sparkles.svg' },
+];
+
+const SECTION_ICONS = [
+  'fe-books.svg',
+  'fe-ribbon.svg',
+  'fe-cherry-blossom.svg',
+  'fe-crown.svg',
+  'fe-teddy-bear.svg',
+  'fe-sparkles.svg',
+  'fe-butterfly.svg',
+  'fe-tulip.svg',
+  'kw-book-open-check.svg',
+  'kw-heart-balloon.svg',
+];
+
+const BUDDY_STICKERS = [
+  'bunny-boba.png',
+  'kitty-bell.png',
+  'bear-strawberry.png',
+  'study-notebook.png',
+  'puppy-star.png',
+  'strawberry-milk.png',
+  'cupcake-cherry.png',
+  'kitty-crown.png',
+];
 
 const app = {
   state: {
@@ -37,11 +88,45 @@ const app = {
   tempMultiSelected: new Set(),
   searchFilter: 'ALL',
 
+  toastTimer: null,
+
   init() {
     this.loadState();
     this.applyTheme();
     this.renderHome();
+    this.renderStickerShelf();
     this.setupKeyboardAndTouch();
+  },
+
+  popCuteToast(msg, iconFile = 'fe-sparkling-heart.svg') {
+    const el = document.getElementById('cute-toast');
+    const txt = document.getElementById('cute-toast-text');
+    const ico = document.getElementById('cute-toast-icon');
+    if (!el || !txt || !ico) return;
+    txt.textContent = msg;
+    ico.src = `stickers/icons/${iconFile}`;
+    el.classList.remove('hidden');
+    clearTimeout(this.toastTimer);
+    this.toastTimer = setTimeout(() => {
+      el.classList.add('hidden');
+    }, 2600);
+  },
+
+  renderStickerShelf() {
+    const shelf = document.getElementById('sticker-shelf');
+    if (!shelf) return;
+    shelf.innerHTML = '';
+    STICKER_SHELF.forEach((st) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'p-2 rounded-xl card-alt border hover:border-pink-400 transition flex flex-col items-center justify-center gap-1 group cursor-pointer';
+      btn.onclick = () => this.popCuteToast(st.toast, st.icon);
+      btn.innerHTML = `
+        <img src="stickers/chibi/${st.file}" alt="${this.escapeHtml(st.label)}" class="w-11 h-11 sm:w-12 sm:h-12 object-contain sticker-drop group-hover:scale-110 transition">
+        <span class="text-[10px] font-semibold text-sec text-center leading-tight">${this.escapeHtml(st.label)}</span>
+      `;
+      shelf.appendChild(btn);
+    });
   },
 
   loadState() {
@@ -205,17 +290,24 @@ const app = {
 
       card.innerHTML = `
         <div>
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-xl accent-pill border flex items-center justify-center text-2xl group-hover:scale-105 transition">
-              ${meta.icon}
+          <div class="flex items-start justify-between mb-3">
+            <div class="relative w-16 h-16 rounded-2xl accent-pill border flex items-center justify-center group-hover:scale-105 transition">
+              <img src="${meta.sticker}" alt="${meta.name}" class="w-14 h-14 object-contain sticker-drop">
+              <img src="${meta.miniSticker}" alt="" class="w-7 h-7 object-contain sticker-drop absolute -bottom-1.5 -right-2 pointer-events-none">
             </div>
-            ${
-              mistakeCount > 0
-                ? `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-50 dark:bg-rose-500/15 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-500/30">⚠️ ${mistakeCount} câu sai</span>`
-                : `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold accent-pill border">${numSections} bộ</span>`
-            }
+            <div class="flex flex-col items-end gap-1">
+              ${
+                mistakeCount > 0
+                  ? `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-50 dark:bg-rose-500/15 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-500/30">⚠️ ${mistakeCount} câu sai</span>`
+                  : `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold accent-pill border">${numSections} bộ</span>`
+              }
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold sticker-ribbon-pill">${meta.cuteBadge}</span>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-main group-hover:text-pink-600 dark:group-hover:text-pink-400 transition">${meta.name}</h3>
+          <h3 class="text-xl font-bold text-main group-hover:text-pink-600 dark:group-hover:text-pink-400 transition flex items-center gap-1.5">
+            <span>${meta.name}</span>
+            <img src="stickers/icons/fe-pink-heart.svg" alt="" class="w-4 h-4">
+          </h3>
           <p class="text-xs text-sec mt-1 mb-4">${meta.subtitle}</p>
 
           <div class="space-y-2 text-xs text-sec mb-5 p-3.5 rounded-xl card-alt border">
@@ -235,7 +327,7 @@ const app = {
 
         <button class="w-full py-2.5 rounded-xl card-alt border text-main card-action-btn font-semibold text-sm transition flex items-center justify-center gap-1.5">
           <span>Vào học bộ này</span>
-          <span>➔</span>
+          <span>➔ ♥</span>
         </button>
       `;
 
@@ -269,6 +361,8 @@ const app = {
     document.getElementById('course-badge').textContent = code === 'ALL' ? '412 CÂU' : code;
     document.getElementById('course-title').textContent = `${meta.icon} ${meta.name}`;
     document.getElementById('course-subtitle').textContent = meta.subtitle;
+    const heroImg = document.getElementById('course-hero-sticker');
+    if (heroImg && meta.heroSticker) heroImg.src = meta.heroSticker;
 
     const mistakesList = this.getCourseMistakeIds(code);
     document.getElementById('course-mistake-count').textContent = mistakesList.length;
@@ -290,6 +384,7 @@ const app = {
 
       const pct = total > 0 ? Math.round((done / total) * 100) : 0;
       const colorBadge = this.getSectionColorClass(sec.tag);
+      const secIcon = SECTION_ICONS[idx % SECTION_ICONS.length];
 
       const card = document.createElement('div');
       card.className =
@@ -299,10 +394,14 @@ const app = {
       card.innerHTML = `
         <div>
           <div class="flex items-center justify-between gap-2 mb-2.5">
-            <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold border ${colorBadge}">
-              ${sec.tag || `Phần ${idx + 1}`}
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold border ${colorBadge}">
+              <img src="stickers/icons/${secIcon}" alt="" class="w-3.5 h-3.5 shrink-0">
+              <span>${sec.tag || `Phần ${idx + 1}`}</span>
             </span>
-            <span class="text-[11px] text-mut">${total} câu</span>
+            <span class="text-[11px] text-mut flex items-center gap-1">
+              <span>${total} câu</span>
+              <img src="stickers/icons/fe-pink-heart.svg" alt="" class="w-3 h-3">
+            </span>
           </div>
           <h4 class="font-bold text-sm sm:text-base text-main group-hover:text-pink-600 dark:group-hover:text-pink-400 transition">${sec.title}</h4>
           <p class="text-xs text-sec mt-1">${total} câu hỏi trắc nghiệm</p>
@@ -311,7 +410,7 @@ const app = {
         <div class="mt-4 pt-3 border-t border-opacity-60" style="border-color: var(--border-color)">
           <div class="flex items-center justify-between text-xs mb-1.5">
             <span class="text-sec">Đã làm: <strong class="text-main">${done}/${total}</strong> (${pct}%)</span>
-            <span class="text-pink-600 dark:text-pink-400 font-semibold group-hover:translate-x-0.5 transition">Học ngay ➔</span>
+            <span class="text-pink-600 dark:text-pink-400 font-semibold group-hover:translate-x-0.5 transition">Học ngay ➔ ♥</span>
           </div>
           <div class="w-full h-1.5 rounded-full progress-track overflow-hidden">
             <div class="h-full bg-pink-600 dark:bg-pink-400 rounded-full transition-all duration-300" style="width: ${pct}%"></div>
@@ -331,13 +430,16 @@ const app = {
       bCard.innerHTML = `
         <div>
           <div class="flex items-center justify-between mb-2">
-            <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold accent-pill border">⭐ Bookmark</span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold accent-pill border">
+              <img src="stickers/icons/fe-heart-with-ribbon.svg" alt="" class="w-3.5 h-3.5">
+              <span>Bookmark yêu thích</span>
+            </span>
           </div>
           <h4 class="font-bold text-sm sm:text-base text-main group-hover:text-pink-600 dark:group-hover:text-pink-400 transition">Các câu đã đánh dấu</h4>
           <p class="text-xs text-sec mt-1">${bookmarkedQs.length} câu hỏi cần lưu ý</p>
         </div>
         <div class="mt-4 pt-3 border-t border-opacity-60 text-right text-xs text-pink-600 dark:text-pink-400 font-semibold" style="border-color: var(--border-color)">
-          Ôn tập ngay ➔
+          Ôn tập ngay ➔ ♥
         </div>
       `;
       grid.appendChild(bCard);
@@ -435,6 +537,11 @@ const app = {
 
     const pct = Math.round((num / total) * 100);
     document.getElementById('quiz-progress-bar').style.width = `${pct}%`;
+
+    const buddyEl = document.getElementById('quiz-buddy-sticker');
+    if (buddyEl) {
+      buddyEl.src = `stickers/chibi/${BUDDY_STICKERS[this.currentIndex % BUDDY_STICKERS.length]}`;
+    }
 
     const isMulti = q.correct && q.correct.length > 1;
     const multiBadge = document.getElementById('q-multi-badge');
@@ -542,16 +649,16 @@ const app = {
       const statusEl = document.getElementById('explanation-status');
       if (savedAns.isCorrect) {
         expBox.className = 'rounded-xl p-4 border border-emerald-400/60 bg-emerald-50 dark:bg-emerald-500/15 text-xs sm:text-sm space-y-2 mb-4';
-        statusEl.className = 'font-bold text-sm text-emerald-700 dark:text-emerald-300';
-        statusEl.textContent = `✓ Chính xác! Đáp án: ${q.correct.join(', ')}`;
+        statusEl.className = 'font-bold text-sm text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5';
+        statusEl.textContent = `✨ Chính xác rồi iempéee ơi! Đáp án: ${q.correct.join(', ')}`;
       } else {
         expBox.className = 'rounded-xl p-4 border border-rose-400/60 bg-rose-50 dark:bg-rose-500/15 text-xs sm:text-sm space-y-2 mb-4';
-        statusEl.className = 'font-bold text-sm text-rose-700 dark:text-rose-300';
-        statusEl.textContent = `✕ Chưa đúng! Đáp án chuẩn là: ${q.correct.join(', ')}`;
+        statusEl.className = 'font-bold text-sm text-rose-700 dark:text-rose-300 flex items-center gap-1.5';
+        statusEl.textContent = `🌷 Hong sao nò iempéee! Đáp án chuẩn là: ${q.correct.join(', ')}`;
       }
 
       document.getElementById('explanation-vi-detail').textContent =
-        q.vi_explanation || 'utnhodangthuong có thể xem lại phần tóm tắt kiến thức của câu này nhé.';
+        q.vi_explanation || 'iempéee có thể xem lại phần tóm tắt kiến thức của câu này nhé.';
 
       const expImgBox = document.getElementById('exp-image-box');
       const expImgEl = document.getElementById('exp-image-el');
