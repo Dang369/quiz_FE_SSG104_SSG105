@@ -35,6 +35,10 @@ const COURSE_META = {
 };
 
 const STICKER_SHELF = [
+  { file: 'bunny-heart.png', label: 'Thỏ hồng nháy mắt', toast: 'Thỏ hồng bắn tim tới tấp cho iempéee nò ♥', icon: 'fe-rabbit-face.svg' },
+  { file: 'chibi-girl.png', label: 'Péee dễ thương', toast: 'Tóc xoăn nơ hồng ôn bài siu xinh lun ✨', icon: 'fe-sparkling-heart.svg' },
+  { file: 'kitty-bell.png', label: 'Mèo chuông vàng', toast: 'Leng keng! Mở cửa đón 10 điểm nè 🐱', icon: 'fe-cat-face.svg' },
+  { file: 'backpack-daisy.png', label: 'Ba lô cúc họa mi', toast: 'Đeo ba lô cúc họa mi vào phòng thi tự tin nha 🌼', icon: 'fe-blossom.svg' },
   { file: 'bear-strawberry.png', label: 'Ôm tim cổ vũ', toast: 'Gấu hồng ôm dâu chúc iempéee học siu dzui ♥', icon: 'fe-strawberry.svg' },
   { file: 'bunny-boba.png', label: 'Trà sữa tiếp sức', toast: 'Uống ngụm trà sữa dâu rùi cày tiếp nò! ✨', icon: 'fe-rabbit-face.svg' },
   { file: 'kitty-crown.png', label: 'Mèo công chúa', toast: 'iempéee đội vương miện chăm chỉ nè 👑', icon: 'fe-crown.svg' },
@@ -47,6 +51,54 @@ const STICKER_SHELF = [
   { file: 'crown-cloud.png', label: 'Cốc cốc vào học', toast: 'Cốc cốc! Mời iempéee vào học ạ! 👑', icon: 'fe-crown.svg' },
   { file: 'daisy-blossom.png', label: 'Hoa nở điểm cao', toast: 'Từng câu từng chữ nở hoa điểm A+ nha 🌸', icon: 'fe-blossom.svg' },
   { file: 'heart-wand.png', label: 'Đũa phép qua môn', toast: 'Úm ba la! Đề SSG dễ ợt với iempéee ✨', icon: 'fe-sparkles.svg' },
+];
+
+const CHAOS_SVG_ICONS = [
+  'fe-pink-heart.svg',
+  'fe-sparkling-heart.svg',
+  'fe-two-hearts.svg',
+  'fe-heart-with-ribbon.svg',
+  'fe-butterfly.svg',
+  'fe-candy.svg',
+  'fe-lollipop.svg',
+  'fe-strawberry.svg',
+  'fe-cherry-blossom.svg',
+  'fe-blossom.svg',
+  'fe-tulip.svg',
+  'fe-ribbon.svg',
+  'fe-crown.svg',
+  'fe-sparkles.svg',
+  'fe-glowing-star.svg',
+  'fe-cupcake.svg',
+  'fe-shortcake.svg',
+  'fe-soft-ice-cream.svg',
+  'fe-wrapped-gift.svg',
+  'fe-confetti-ball.svg',
+  'fe-party-popper.svg',
+  'fe-teddy-bear.svg',
+  'fe-cat-face.svg',
+  'fe-rabbit-face.svg',
+  'fe-love-letter.svg',
+  'fe-hibiscus.svg',
+  'fe-books.svg',
+];
+
+const CHAOS_DECAL_QUOTES = [
+  'Ở đây có ♥ thật nhiều yêu thương',
+  'Cốc cốc! Mời vào học ạ!',
+  'Sweet Day ♥',
+  'Đọc kỹ đề xíu nò ♥',
+  'Cố lên iempéee ơi!',
+  '10 điểm về chỗ ✨',
+  'Học giỏi thương x1000',
+  'Ỏooo cute xỉu ♥',
+  'Não nở hoa 🌸',
+  'Phép thuật qua môn!',
+  'Hí utnhodangthuong ♥',
+  'Nạp mood 100% 🍓',
+  'Đỉnh nóc kịch trần ✨',
+  'Bí kíp qua môn nò 🎀',
+  'Ngọt xỉu lun á 🧁',
 ];
 
 const SECTION_ICONS = [
@@ -79,6 +131,7 @@ const app = {
     mistakes: { SSG104: [], SSG105: [] },
     bookmarks: {},
     theme: 'pink-light', // 'pink-light' | 'pink-dark'
+    pinnedStickers: [],
   },
 
   currentCourseCode: null,
@@ -89,13 +142,547 @@ const app = {
   searchFilter: 'ALL',
 
   toastTimer: null,
+  chaosSeed: Math.floor(Math.random() * 1000000000),
 
   init() {
     this.loadState();
     this.applyTheme();
     this.renderHome();
     this.renderStickerShelf();
+    this.renderChaoticAmbientStickers();
+    this.renderSpawnedStickers();
     this.setupKeyboardAndTouch();
+  },
+
+  makePrng(seed) {
+    let a = (seed >>> 0) || 1;
+    return () => {
+      a |= 0;
+      a = (a + 0x6d2b79f5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  },
+
+  rerollChaosSideStickers(sourceEl = null) {
+    this.chaosSeed = Math.floor(Math.random() * 1000000000);
+    this.renderChaoticAmbientStickers();
+    this.triggerStickerBoing(sourceEl);
+    this.popCuteToast('Úm ba la! Đã xáo trộn hỗn loạn toàn bộ nhãn 2 bên cho iempéee ✨', 'fe-sparkles.svg');
+  },
+
+  renderChaoticAmbientStickers() {
+    const leftRail = document.getElementById('side-rail-left');
+    const rightRail = document.getElementById('side-rail-right');
+    if (!leftRail || !rightRail) return;
+
+    leftRail.innerHTML = '';
+    rightRail.innerHTML = '';
+
+    const vw = window.innerWidth;
+    if (vw < 1120) return;
+
+    const gutter = Math.max(0, (vw - 928) / 2);
+    const rng = this.makePrng(this.chaosSeed);
+    const movedKeys = new Set(
+      (this.state.pinnedStickers || []).map((p) => p.sourceChaosKey).filter(Boolean)
+    );
+
+    const tier =
+      gutter >= 340
+        ? { chibi: 26, svg: 26, decal: 12, sizeScale: 1 }
+        : gutter >= 200
+          ? { chibi: 16, svg: 18, decal: 8, sizeScale: 0.8 }
+          : { chibi: 9, svg: 12, decal: 4, sizeScale: 0.64 };
+
+    const chibiSizes = [44, 50, 58, 68, 78, 92, 108, 122];
+
+    [
+      { rail: leftRail, railSide: 'left' },
+      { rail: rightRail, railSide: 'right' },
+    ].forEach(({ rail, railSide }) => {
+      const frag = document.createDocumentFragment();
+      const anchors = [];
+
+      const bindAmbientItem = (meta, leftPx, topPct, z) => {
+        if (movedKeys.has(meta.chaosKey)) return;
+        const item = document.createElement('div');
+        item.className = 'chaos-item pointer-events-auto group sticker-draggable';
+        item.style.position = 'absolute';
+        item.style.left = `${Math.round(leftPx)}px`;
+        item.style.top = `${topPct.toFixed(1)}%`;
+        item.style.zIndex = String(z);
+        if (meta.opacity !== undefined) item.style.opacity = String(meta.opacity);
+
+        const inner = this.buildStickerInnerEl(meta, true);
+        item.appendChild(inner);
+
+        let livePin = null;
+        this.enableHoldDrag(item, inner, {
+          onTap: () => {
+            this.triggerStickerBoing(item);
+            this.popCuteToast(meta.toast, meta.icon);
+          },
+          onDrop: (freeX, freeY) => {
+            const zIdx = this.getNextStickerZ();
+            if (!this.state.pinnedStickers) this.state.pinnedStickers = [];
+            if (!livePin) {
+              livePin = {
+                uid: `st_${Date.now()}_${Math.floor(Math.random() * 99999)}`,
+                sourceChaosKey: meta.chaosKey,
+                kind: meta.kind,
+                file: meta.file,
+                label: meta.label,
+                showBadge: !!meta.showBadge,
+                badgeRibbon: !!meta.badgeRibbon,
+                badgeRot: meta.badgeRot || 0,
+                toast: meta.toast,
+                icon: meta.icon,
+                widthPx: meta.widthPx,
+                opacity: meta.opacity,
+                side: railSide,
+                xRatio: 0.5,
+                yPct: freeY,
+                freeX,
+                freeY,
+                zIndex: zIdx,
+                rot: meta.rot,
+                scale: meta.scale || 1,
+                dx: meta.dx,
+                dy: meta.dy,
+                dur: meta.dur,
+                delay: meta.delay,
+              };
+              this.state.pinnedStickers.push(livePin);
+              if (this.state.pinnedStickers.length > 90) this.state.pinnedStickers.shift();
+              this.attachStickerDismissBtn(inner, livePin.uid);
+              this.updateSpawnedClearBtn();
+            } else {
+              livePin.freeX = freeX;
+              livePin.freeY = freeY;
+              livePin.zIndex = zIdx;
+            }
+            item.classList.remove('chaos-item');
+            item.style.zIndex = String(zIdx);
+            this.saveState();
+            this.popCuteToast('Đã kéo dán sticker tới chỗ mới nò ✨', meta.icon);
+          },
+        });
+
+        frag.appendChild(item);
+      };
+
+      // 1. Chaotic layered Chibi PNGs across full side wing
+      for (let i = 0; i < tier.chibi; i++) {
+        const st = STICKER_SHELF[Math.floor(rng() * STICKER_SHELF.length)];
+        const baseW = Math.round(chibiSizes[Math.floor(rng() * chibiSizes.length)] * tier.sizeScale);
+        const maxLeft = Math.max(4, gutter - baseW - 4);
+
+        let leftPx;
+        let topPct;
+        if (anchors.length > 0 && rng() < 0.34) {
+          const anchor = anchors[Math.floor(rng() * anchors.length)];
+          leftPx = Math.max(0, Math.min(maxLeft, anchor.x + (rng() * 110 - 55)));
+          topPct = Math.max(0, Math.min(90, anchor.y + (rng() * 14 - 7)));
+        } else {
+          leftPx = rng() * maxLeft;
+          topPct = rng() * 90;
+        }
+        anchors.push({ x: leftPx, y: topPct });
+
+        const meta = {
+          chaosKey: `${railSide}_chibi_${i}`,
+          kind: 'chibi',
+          file: st.file,
+          label: st.label,
+          showBadge: false,
+          widthPx: baseW,
+          toast: st.toast,
+          icon: st.icon,
+          rot: Number((rng() * 76 - 38).toFixed(1)),
+          scale: 1,
+          dx: Math.round(rng() * 32 - 16),
+          dy: Math.round(-(5 + rng() * 16)),
+          dur: (2.6 + rng() * 4.0).toFixed(2),
+          delay: -(rng() * 5.5).toFixed(2),
+        };
+        const z = 2 + Math.floor(rng() * 18);
+        bindAmbientItem(meta, leftPx, topPct, z);
+      }
+
+      // 2. Chaotic SVG sticker confetti & kawaii props everywhere
+      for (let i = 0; i < tier.svg; i++) {
+        const iconFile = CHAOS_SVG_ICONS[Math.floor(rng() * CHAOS_SVG_ICONS.length)];
+        const sz = Math.max(16, Math.round((18 + rng() * 32) * tier.sizeScale));
+        const maxLeft = Math.max(4, gutter - sz - 4);
+        const leftPx = rng() * maxLeft;
+        const topPct = rng() * 94;
+        const quote = CHAOS_DECAL_QUOTES[Math.floor(rng() * CHAOS_DECAL_QUOTES.length)];
+
+        const meta = {
+          chaosKey: `${railSide}_svg_${i}`,
+          kind: 'svg',
+          file: iconFile,
+          label: quote,
+          showBadge: false,
+          widthPx: sz,
+          opacity: Number((0.78 + rng() * 0.22).toFixed(2)),
+          toast: quote,
+          icon: iconFile,
+          rot: Number((rng() * 110 - 55).toFixed(1)),
+          scale: 1,
+          dx: Math.round(rng() * 26 - 13),
+          dy: Math.round(-(4 + rng() * 14)),
+          dur: (2.2 + rng() * 3.8).toFixed(2),
+          delay: -(rng() * 5).toFixed(2),
+        };
+        const z = 1 + Math.floor(rng() * 20);
+        bindAmbientItem(meta, leftPx, topPct, z);
+      }
+
+      // 3. Messy overlapping Vietnamese door-sticker quote decals & ribbons
+      for (let i = 0; i < tier.decal; i++) {
+        const text = CHAOS_DECAL_QUOTES[Math.floor(rng() * CHAOS_DECAL_QUOTES.length)];
+        const iconFile = CHAOS_SVG_ICONS[Math.floor(rng() * CHAOS_SVG_ICONS.length)];
+        const isRibbon = rng() < 0.45;
+        const estW = Math.min(gutter - 12, Math.round(118 * tier.sizeScale + 44));
+        const maxLeft = Math.max(4, gutter - estW);
+        const leftPx = rng() * maxLeft;
+        const topPct = 3 + rng() * 90;
+
+        const meta = {
+          chaosKey: `${railSide}_decal_${i}`,
+          kind: 'decal',
+          file: iconFile,
+          label: text,
+          showBadge: false,
+          badgeRibbon: isRibbon,
+          toast: text,
+          icon: iconFile,
+          rot: Number((rng() * 52 - 26).toFixed(1)),
+          scale: Number((0.86 + rng() * 0.24).toFixed(2)),
+          dx: Math.round(rng() * 20 - 10),
+          dy: Math.round(-(4 + rng() * 11)),
+          dur: (3.0 + rng() * 3.4).toFixed(2),
+          delay: -(rng() * 5).toFixed(2),
+        };
+        const z = 7 + Math.floor(rng() * 16);
+        bindAmbientItem(meta, leftPx, topPct, z);
+      }
+
+      rail.appendChild(frag);
+    });
+  },
+
+  getNextStickerZ() {
+    const list = this.state.pinnedStickers || [];
+    let maxZ = 27;
+    list.forEach((p) => {
+      if ((p.zIndex || 0) > maxZ) maxZ = p.zIndex;
+    });
+    if (maxZ >= 38) {
+      list.forEach((p) => {
+        if ((p.zIndex || 28) > 28) p.zIndex -= 4;
+      });
+      maxZ -= 4;
+    }
+    return Math.min(39, maxZ + 1);
+  },
+
+  updateSpawnedClearBtn() {
+    const clearBtn = document.getElementById('btn-clear-spawned');
+    const countEl = document.getElementById('spawned-count');
+    const list = this.state.pinnedStickers || [];
+    if (clearBtn && countEl) {
+      countEl.textContent = list.length;
+      clearBtn.classList.toggle('hidden', list.length === 0);
+    }
+  },
+
+  attachStickerDismissBtn(inner, uid) {
+    if (inner.querySelector('.sticker-dismiss-btn')) return;
+    const dismissBtn = document.createElement('button');
+    dismissBtn.type = 'button';
+    dismissBtn.title = 'Gỡ sticker này';
+    dismissBtn.textContent = '✕';
+    dismissBtn.className = 'sticker-dismiss-btn opacity-0 group-hover:opacity-100 absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-rose-500 text-white text-[10px] font-bold flex items-center justify-center shadow transition z-10 cursor-pointer';
+    dismissBtn.onclick = (e) => {
+      e.stopPropagation();
+      this.removeSpawnedSticker(uid);
+    };
+    inner.appendChild(dismissBtn);
+  },
+
+  buildStickerInnerEl(p, hasWideGutter = true) {
+    const appliedScale = hasWideGutter ? (p.scale || 1) : Math.min(p.scale || 1, 0.85);
+    const inner = document.createElement('div');
+    inner.style.setProperty('--rot', `${p.rot || 0}deg`);
+    inner.style.setProperty('--sc', `${appliedScale}`);
+    inner.style.setProperty('--dx', `${p.dx || 10}px`);
+    inner.style.setProperty('--dy', `${p.dy || -12}px`);
+    inner.style.setProperty('--dur', `${p.dur || 4.2}s`);
+    if (p.delay) inner.style.animationDelay = `${p.delay}s`;
+
+    if (p.kind === 'decal') {
+      inner.className =
+        'relative select-none spawned-sticker-inner inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold shadow-sm whitespace-nowrap ' +
+        (p.badgeRibbon ? 'sticker-ribbon-pill' : 'sticker-decal');
+      inner.innerHTML = `
+        <img src="stickers/icons/${p.icon}" alt="" class="w-3.5 h-3.5 shrink-0">
+        <span>${this.escapeHtml(p.label)}</span>
+      `;
+      return inner;
+    }
+
+    inner.className = 'relative flex flex-col items-center gap-0.5 spawned-sticker-inner select-none';
+    const isSvg = p.kind === 'svg';
+    const imgSrc = isSvg ? `stickers/icons/${p.file}` : `stickers/chibi/${p.file}`;
+    const customSizeAttr = p.widthPx ? `style="width:${p.widthPx}px;height:${isSvg ? p.widthPx + 'px' : 'auto'}"` : '';
+    const imgSizeCls = p.widthPx ? '' : isSvg ? 'w-10 sm:w-12 h-auto' : 'w-14 sm:w-20 h-auto';
+
+    const badgeCls = p.badgeRibbon ? 'sticker-ribbon-pill' : 'sticker-decal';
+    const badgeHtml =
+      p.showBadge && !isSvg
+        ? `<span style="transform: rotate(${p.badgeRot || 0}deg)" class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${badgeCls} shadow-sm whitespace-nowrap -mt-1">
+            <img src="stickers/icons/${p.icon}" alt="" class="w-3 h-3 shrink-0">
+            <span>${this.escapeHtml(p.label)}</span>
+          </span>`
+        : '';
+
+    inner.innerHTML = `
+      <img src="${imgSrc}" alt="${this.escapeHtml(p.label)}" ${customSizeAttr} class="${imgSizeCls} object-contain ${isSvg ? 'drop-shadow-sm' : 'sticker-drop'} group-hover:scale-110 transition">
+      ${badgeHtml}
+    `;
+    return inner;
+  },
+
+  triggerStickerBoing(el) {
+    if (!el || !el.classList) return;
+    el.classList.remove('boing-pop');
+    void el.offsetWidth;
+    el.classList.add('boing-pop');
+    clearTimeout(el._boingTimer);
+    el._boingTimer = setTimeout(() => {
+      el.classList.remove('boing-pop');
+    }, 480);
+  },
+
+  spawnSparkTrail(inner, fullBurst = false) {
+    if (!inner) return;
+    const dirs = fullBurst
+      ? [
+          [-38, -42, -160, 'fe-pink-heart.svg'],
+          [42, -36, 180, 'fe-sparkles.svg'],
+          [-44, 18, -120, 'fe-blossom.svg'],
+          [38, 28, 140, 'fe-two-hearts.svg'],
+          [0, -52, 90, 'fe-butterfly.svg'],
+          [-26, 40, -210, 'fe-lollipop.svg'],
+          [26, -50, 220, 'fe-pink-heart.svg'],
+          [48, 0, 110, 'fe-ribbon.svg'],
+        ]
+      : [
+          [-26, -30, -110, 'fe-pink-heart.svg'],
+          [28, -26, 130, 'fe-sparkles.svg'],
+          [0, -38, 80, 'fe-two-hearts.svg'],
+          [-22, 20, -140, 'fe-blossom.svg'],
+          [24, 18, 120, 'fe-ribbon.svg'],
+        ];
+    dirs.forEach(([tx, ty, tr, iconFile]) => {
+      const sp = document.createElement('img');
+      sp.src = `stickers/icons/${iconFile}`;
+      sp.alt = '';
+      sp.className = 'w-4 h-4 absolute top-1/2 left-1/2 pointer-events-none spark-particle';
+      sp.style.setProperty('--tx', `${tx}px`);
+      sp.style.setProperty('--ty', `${ty}px`);
+      sp.style.setProperty('--tr', `${tr}deg`);
+      inner.appendChild(sp);
+      setTimeout(() => sp.remove(), 780);
+    });
+  },
+
+  enableHoldDrag(wrap, inner, { onTap, onDrop }) {
+    wrap.addEventListener('dragstart', (e) => e.preventDefault());
+    wrap.addEventListener('contextmenu', (e) => e.preventDefault());
+
+    let holdTimer = null;
+    let glideTimer = null;
+    let activePointerId = null;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let baseX = 0;
+    let baseY = 0;
+    let maxMoved = 0;
+    let pointerType = 'mouse';
+    let samples = [];
+
+    const onWinMove = (e) => {
+      if (activePointerId !== e.pointerId) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      const dist = Math.hypot(dx, dy);
+      if (dist > maxMoved) maxMoved = dist;
+
+      if (!isDragging) {
+        if (pointerType === 'mouse') {
+          if (dist > 6) {
+            clearTimeout(holdTimer);
+            activateDrag();
+          }
+        } else if (dist > 10) {
+          // Finger moved before hold completed -> allow normal page scrolling
+          cleanup();
+          return;
+        }
+      }
+
+      if (isDragging) {
+        e.preventDefault();
+        const now = performance.now();
+        samples.push({ t: now, x: e.clientX, y: e.clientY });
+        if (samples.length > 8) samples.shift();
+
+        const nx = Math.max(-24, Math.min(window.innerWidth - 36, baseX + dx));
+        const ny = Math.max(0, Math.min(window.innerHeight - 36, baseY + dy));
+        wrap.style.left = `${Math.round(nx)}px`;
+        wrap.style.top = `${Math.round(ny)}px`;
+      }
+    };
+
+    const handleEnd = (e) => {
+      if (activePointerId !== e.pointerId) return;
+      const wasDragging = isDragging;
+      const moved = maxMoved;
+      const curLeft = parseFloat(wrap.style.left);
+      const curTop = parseFloat(wrap.style.top);
+      const safeLeft = Number.isFinite(curLeft) ? curLeft : baseX;
+      const safeTop = Number.isFinite(curTop) ? curTop : baseY;
+
+      // Estimate release inertia from recent movement samples
+      let vx = 0;
+      let vy = 0;
+      const now = performance.now();
+      const recent = samples.filter((s) => now - s.t <= 120);
+      if (recent.length >= 2) {
+        const first = recent[0];
+        const last = recent[recent.length - 1];
+        const dt = (last.t - first.t) / 1000;
+        if (dt > 0.008 && now - last.t < 95) {
+          vx = (last.x - first.x) / dt;
+          vy = (last.y - first.y) / dt;
+        }
+      }
+
+      cleanup();
+
+      if (wasDragging) {
+        const vw = window.innerWidth || 1;
+        const vh = window.innerHeight || 1;
+        const clampThrow = (v) => Math.max(-96, Math.min(96, v * 0.12));
+        const throwX = clampThrow(vx);
+        const throwY = clampThrow(vy) + (Math.abs(vy) < 40 ? -10 : 0);
+
+        const targetPxX = Math.round(Math.max(-16, Math.min(vw - 40, safeLeft + throwX)));
+        const targetPxY = Math.round(Math.max(4, Math.min(vh - 40, safeTop + throwY)));
+        const freeX = Number(((targetPxX / vw) * 100).toFixed(1));
+        const freeY = Number(((targetPxY / vh) * 100).toFixed(1));
+
+        const gdx = Math.max(-16, Math.min(16, Math.round(vx * 0.015) || 6));
+        const grot = Math.max(-14, Math.min(14, Math.round(-vx * 0.015) || -7));
+        wrap.style.setProperty('--gdx', `${gdx}px`);
+        wrap.style.setProperty('--grot', `${grot}deg`);
+
+        // Smooth px -> px momentum glide + buoyant settle while inner floatLoopFree resumes immediately
+        if (inner) {
+          inner.style.animationDelay = '0s';
+        }
+        wrap.classList.add('sticker-glide-ease');
+        void wrap.offsetWidth;
+        wrap.style.left = `${targetPxX}px`;
+        wrap.style.top = `${targetPxY}px`;
+        wrap.classList.add('sticker-drop-float');
+
+        if (onDrop) onDrop(freeX, freeY);
+        this.spawnSparkTrail(inner, false);
+
+        clearTimeout(glideTimer);
+        glideTimer = setTimeout(() => {
+          wrap.classList.remove('sticker-glide-ease', 'sticker-drop-float');
+          wrap.style.left = `${freeX}%`;
+          wrap.style.top = `${freeY}%`;
+        }, 1050);
+      } else if (moved <= 8 && e.type === 'pointerup') {
+        if (onTap) onTap();
+      }
+    };
+
+    const cleanup = () => {
+      clearTimeout(holdTimer);
+      holdTimer = null;
+      activePointerId = null;
+      isDragging = false;
+      samples = [];
+      wrap.classList.remove('sticker-dragging');
+      wrap.style.touchAction = '';
+      window.removeEventListener('pointermove', onWinMove);
+      window.removeEventListener('pointerup', handleEnd);
+      window.removeEventListener('pointercancel', handleEnd);
+    };
+
+    const activateDrag = () => {
+      if (activePointerId === null || isDragging) return;
+      isDragging = true;
+      clearTimeout(glideTimer);
+      wrap.classList.remove('spawned-sticker-wrap', 'sticker-glide-ease', 'sticker-drop-float', 'boing-pop');
+
+      const parent = wrap.parentElement;
+      if (parent && (parent.id === 'side-rail-left' || parent.id === 'side-rail-right')) {
+        const pr = parent.getBoundingClientRect();
+        baseX = pr.left + wrap.offsetLeft;
+        baseY = pr.top + wrap.offsetTop;
+        wrap.style.position = 'fixed';
+        const layer = document.getElementById('spawned-sticker-layer');
+        if (layer) layer.appendChild(wrap);
+      } else {
+        baseX = wrap.offsetLeft;
+        baseY = wrap.offsetTop;
+      }
+
+      wrap.style.right = 'auto';
+      wrap.style.bottom = 'auto';
+      wrap.style.left = `${Math.round(baseX)}px`;
+      wrap.style.top = `${Math.round(baseY)}px`;
+      wrap.style.touchAction = 'none';
+      wrap.classList.add('sticker-dragging');
+
+      if (navigator.vibrate && pointerType !== 'mouse') {
+        try { navigator.vibrate(12); } catch (_) {}
+      }
+    };
+
+    wrap.addEventListener('pointerdown', (e) => {
+      if (e.target && e.target.closest('button')) return;
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+      clearTimeout(glideTimer);
+      wrap.classList.remove('sticker-glide-ease', 'sticker-drop-float');
+
+      activePointerId = e.pointerId;
+      pointerType = e.pointerType || 'mouse';
+      isDragging = false;
+      startX = e.clientX;
+      startY = e.clientY;
+      samples = [{ t: performance.now(), x: e.clientX, y: e.clientY }];
+      maxMoved = 0;
+
+      if (pointerType === 'mouse') e.preventDefault();
+      clearTimeout(holdTimer);
+      window.addEventListener('pointermove', onWinMove);
+      window.addEventListener('pointerup', handleEnd);
+      window.addEventListener('pointercancel', handleEnd);
+      holdTimer = setTimeout(activateDrag, 180);
+    });
   },
 
   popCuteToast(msg, iconFile = 'fe-sparkling-heart.svg') {
@@ -112,6 +699,177 @@ const app = {
     }, 2600);
   },
 
+  spawnFloatingSticker(st, sourceEl = null, silentToast = false, forcedKind = 'chibi') {
+    const side = Math.random() < 0.5 ? 'left' : 'right';
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const gutter = Math.max(0, (vw - 928) / 2);
+    const hasWide = vw >= 1120;
+    const usable = hasWide ? Math.max(16, gutter - 126) : 14;
+
+    // Pure chaotic unordered placement — no neat spacing solver!
+    const xRatio = Math.random();
+    const yPct = 2 + Math.random() * 86;
+
+    const showBadge = forcedKind === 'chibi' && Math.random() < 0.62;
+    const badgeText = showBadge
+      ? Math.random() < 0.45
+        ? st.label
+        : CHAOS_DECAL_QUOTES[Math.floor(Math.random() * CHAOS_DECAL_QUOTES.length)]
+      : '';
+
+    const pxTargetX = (hasWide ? 6 : 2) + xRatio * usable;
+    const targetScreenX = side === 'left' ? pxTargetX : vw - pxTargetX - 88;
+    const targetScreenY = (yPct / 100) * vh;
+
+    let fx = 0;
+    let fy = 40;
+    if (sourceEl && sourceEl.getBoundingClientRect) {
+      const sr = sourceEl.getBoundingClientRect();
+      fx = Math.round(sr.left + sr.width / 2 - (targetScreenX + 44));
+      fy = Math.round(sr.top + sr.height / 2 - (targetScreenY + 44));
+    }
+
+    const svgIcon = forcedKind === 'svg' ? CHAOS_SVG_ICONS[Math.floor(Math.random() * CHAOS_SVG_ICONS.length)] : st.icon;
+
+    const newItem = {
+      uid: `st_${Date.now()}_${Math.floor(Math.random() * 99999)}`,
+      kind: forcedKind,
+      file: forcedKind === 'svg' ? svgIcon : st.file,
+      label: badgeText || st.label,
+      showBadge,
+      badgeRibbon: Math.random() < 0.4,
+      badgeRot: Math.round(Math.random() * 24 - 12),
+      toast: forcedKind === 'svg' ? CHAOS_DECAL_QUOTES[Math.floor(Math.random() * CHAOS_DECAL_QUOTES.length)] : st.toast,
+      icon: svgIcon,
+      side,
+      xRatio,
+      yPct,
+      zIndex: 22 + Math.floor(Math.random() * 18),
+      rot: Math.round((Math.random() * 84 - 42) * 10) / 10,
+      scale: Math.round((0.62 + Math.random() * 0.82) * 100) / 100,
+      dx: Math.round(Math.random() * 34 - 17),
+      dy: Math.round(-(6 + Math.random() * 18)),
+      dur: (2.5 + Math.random() * 3.6).toFixed(2),
+      delay: -(Math.random() * 4).toFixed(2),
+      fx,
+      fy,
+    };
+
+    if (!this.state.pinnedStickers) this.state.pinnedStickers = [];
+    this.state.pinnedStickers.push(newItem);
+    if (this.state.pinnedStickers.length > 90) {
+      this.state.pinnedStickers.shift();
+    }
+    this.saveState();
+    this.renderSpawnedStickers(newItem.uid);
+    if (!silentToast) {
+      this.popCuteToast(`${st.label}! Nhảy sang bên ${side === 'left' ? 'trái' : 'phải'} nò ♥`, st.icon);
+    }
+  },
+
+  chaosDropBurst(count = 10, sourceEl = null) {
+    for (let i = 0; i < count; i++) {
+      setTimeout(() => {
+        const pick = STICKER_SHELF[Math.floor(Math.random() * STICKER_SHELF.length)];
+        const kind = Math.random() < 0.25 ? 'svg' : 'chibi';
+        this.spawnFloatingSticker(pick, sourceEl, i < count - 1, kind);
+        if (i === count - 1) {
+          this.popCuteToast(`Xả lũ ${count} bé sticker hỗn loạn khắp 2 bên lun nè ✨`, 'fe-sparkles.svg');
+        }
+      }, i * 55);
+    }
+  },
+
+  removeSpawnedSticker(uid) {
+    const list = this.state.pinnedStickers || [];
+    const target = list.find((p) => p.uid === uid);
+    this.state.pinnedStickers = list.filter((p) => p.uid !== uid);
+    this.saveState();
+    if (target && target.sourceChaosKey) {
+      this.renderChaoticAmbientStickers();
+    }
+    this.renderSpawnedStickers();
+  },
+
+  clearSpawnedStickers() {
+    const hadAmbient = (this.state.pinnedStickers || []).some((p) => p.sourceChaosKey);
+    this.state.pinnedStickers = [];
+    this.saveState();
+    if (hadAmbient) {
+      this.renderChaoticAmbientStickers();
+    }
+    this.renderSpawnedStickers();
+    this.popCuteToast('Đã dọn gọn hết nhãn dán tự do cho iempéee ✨', 'fe-sparkles.svg');
+  },
+
+  renderSpawnedStickers(justSpawnedUid = null) {
+    const layer = document.getElementById('spawned-sticker-layer');
+    if (!layer) return;
+
+    this.updateSpawnedClearBtn();
+    const list = this.state.pinnedStickers || [];
+
+    layer.innerHTML = '';
+    const vw = window.innerWidth;
+    const hasWideGutter = vw >= 1120;
+    const gutter = Math.max(0, (vw - 928) / 2);
+
+    list.forEach((p) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'fixed pointer-events-auto group sticker-draggable' + (p.uid === justSpawnedUid ? ' spawned-sticker-wrap' : '');
+      wrap.style.zIndex = String(p.zIndex || 26);
+      if (p.opacity !== undefined) wrap.style.opacity = String(p.opacity);
+      if (p.uid === justSpawnedUid) {
+        wrap.style.setProperty('--fx', `${p.fx || 0}px`);
+        wrap.style.setProperty('--fy', `${p.fy || 40}px`);
+      }
+
+      if (p.freeX !== undefined && p.freeY !== undefined) {
+        wrap.style.left = `${p.freeX}%`;
+        wrap.style.top = `${p.freeY}%`;
+      } else {
+        wrap.style.top = `${p.yPct}%`;
+        if (hasWideGutter) {
+          const usable = Math.max(16, gutter - 126);
+          const pxOffset = Math.round(6 + p.xRatio * usable);
+          if (p.side === 'left') wrap.style.left = `${pxOffset}px`;
+          else wrap.style.right = `${pxOffset}px`;
+        } else {
+          const edgeOffset = Math.round(2 + p.xRatio * 10);
+          if (p.side === 'left') wrap.style.left = `${edgeOffset}px`;
+          else wrap.style.right = `${edgeOffset}px`;
+        }
+      }
+
+      const inner = this.buildStickerInnerEl(p, hasWideGutter);
+      this.attachStickerDismissBtn(inner, p.uid);
+
+      this.enableHoldDrag(wrap, inner, {
+        onTap: () => {
+          this.triggerStickerBoing(wrap);
+          this.popCuteToast(p.toast, p.icon);
+        },
+        onDrop: (freeX, freeY) => {
+          const zIdx = this.getNextStickerZ();
+          p.freeX = freeX;
+          p.freeY = freeY;
+          p.zIndex = zIdx;
+          wrap.style.zIndex = String(zIdx);
+          this.saveState();
+          this.popCuteToast('Đã kéo dán sticker tới chỗ mới nò ✨', p.icon);
+        },
+      });
+
+      if (p.uid === justSpawnedUid) {
+        this.spawnSparkTrail(inner, true);
+      }
+
+      wrap.appendChild(inner);
+      layer.appendChild(wrap);
+    });
+  },
+
   renderStickerShelf() {
     const shelf = document.getElementById('sticker-shelf');
     if (!shelf) return;
@@ -119,8 +877,8 @@ const app = {
     STICKER_SHELF.forEach((st) => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'p-2 rounded-xl card-alt border hover:border-pink-400 transition flex flex-col items-center justify-center gap-1 group cursor-pointer';
-      btn.onclick = () => this.popCuteToast(st.toast, st.icon);
+      btn.className = 'p-2 rounded-xl card-alt border hover:border-pink-400 active:scale-95 transition flex flex-col items-center justify-center gap-1 group cursor-pointer';
+      btn.onclick = () => this.spawnFloatingSticker(st, btn);
       btn.innerHTML = `
         <img src="stickers/chibi/${st.file}" alt="${this.escapeHtml(st.label)}" class="w-11 h-11 sm:w-12 sm:h-12 object-contain sticker-drop group-hover:scale-110 transition">
         <span class="text-[10px] font-semibold text-sec text-center leading-tight">${this.escapeHtml(st.label)}</span>
@@ -142,6 +900,7 @@ const app = {
           },
           bookmarks: parsed.bookmarks || {},
           theme: parsed.theme === 'pink-dark' ? 'pink-dark' : 'pink-light',
+          pinnedStickers: Array.isArray(parsed.pinnedStickers) ? parsed.pinnedStickers : [],
         };
       }
     } catch (e) {
@@ -777,7 +1536,9 @@ const app = {
       mistakes: { SSG104: [], SSG105: [] },
       bookmarks: {},
       theme: this.state.theme,
+      pinnedStickers: this.state.pinnedStickers || [],
     };
+    this.saveState();
     this.renderHome();
   },
 
@@ -999,6 +1760,15 @@ const app = {
         else this.prevQuestion();
       }
     }, { passive: true });
+
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        this.renderChaoticAmbientStickers();
+        this.renderSpawnedStickers();
+      }, 120);
+    });
   },
 
   escapeHtml(str) {
