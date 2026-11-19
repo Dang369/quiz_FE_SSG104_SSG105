@@ -18,10 +18,10 @@ const COURSE_META = {
     icon: '🌷',
     sticker: 'stickers/chibi/kitty-bell.png',
     miniSticker: 'stickers/chibi/daisy-blossom.png',
-    cuteBadge: 'Đề 4EXAM • 60 câu kèm ảnh gốc ♥',
+    cuteBadge: 'Đề FE & RE (SU26) ♥',
     heroSticker: 'stickers/chibi/kitty-crown.png',
     name: 'SSG105',
-    subtitle: 'Đề FE & RE chuẩn 4EXAM • 60 câu kèm ảnh gốc đối chiếu 1:1',
+    subtitle: 'Đề FE & RE kỳ SU26 • 60 câu trắc nghiệm',
   },
   ALL: {
     icon: '🍓',
@@ -30,7 +30,7 @@ const COURSE_META = {
     cuteBadge: 'Chăm ngoan 10 điểm nè ✨',
     heroSticker: 'stickers/chibi/study-notebook.png',
     name: 'Tổng Ôn SSG',
-    subtitle: 'Gộp 412 câu • Đề FE/RE 4EXAM + 19 ảnh SSG104 đối chiếu 1:1',
+    subtitle: 'Gộp 412 câu • Đầy đủ SSG104 và SSG105',
   },
 };
 
@@ -1098,19 +1098,37 @@ const app = {
   },
 
   backToCourse() {
+    if (this.currentSectionId === 'exam_fe' || this.currentSectionId === 'exam_re') {
+      return this.goHome();
+    }
     if (!this.currentCourseCode) return this.goHome();
     this.renderCourse(this.currentCourseCode);
     this.showScreen('screen-course');
+  },
+
+  startExam(examId) {
+    const examsObj = window.SSG_EXAMS || (this.getCourseData('SSG105') && this.getCourseData('SSG105').exams);
+    const exam = examsObj && examsObj[examId];
+    if (!exam) return;
+    this.currentCourseCode = 'SSG105';
+    this.currentSectionId = exam.id;
+    this.activeQuestions = exam.questions;
+    let resumeIdx = this.activeQuestions.findIndex((q) => !this.state.answers[q.id]);
+    if (resumeIdx === -1) resumeIdx = 0;
+    this.currentIndex = resumeIdx;
+    document.getElementById('quiz-section-badge').textContent = `SSG105 • ${exam.tag || exam.title}`;
+    this.renderQuestion();
+    this.showScreen('screen-quiz');
   },
 
   renderHome() {
     const examsGrid = document.getElementById('home-exams-grid');
     if (examsGrid) {
       examsGrid.innerHTML = '';
-      const ssg105 = this.getCourseData('SSG105');
-      if (ssg105) {
-        const feSec = ssg105.sections.find((s) => s.id === 'exam_fe');
-        const reSec = ssg105.sections.find((s) => s.id === 'exam_re');
+      const examsObj = window.SSG_EXAMS || (this.getCourseData('SSG105') && this.getCourseData('SSG105').exams);
+      if (examsObj) {
+        const feSec = examsObj.exam_fe;
+        const reSec = examsObj.exam_re;
         [feSec, reSec].filter(Boolean).forEach((sec, idx) => {
           const total = sec.questions.length;
           let done = 0;
@@ -1125,8 +1143,7 @@ const app = {
           card.className =
             'card-surface border rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-pink-500 dark:hover:border-pink-400 transition cursor-pointer group shadow-sm';
           card.onclick = () => {
-            this.currentCourseCode = 'SSG105';
-            this.startSection(sec.id);
+            this.startExam(sec.id);
           };
 
           card.innerHTML = `
@@ -1142,7 +1159,7 @@ const app = {
                 </span>
               </div>
               <h4 class="font-bold text-sm sm:text-base text-main group-hover:text-pink-600 dark:group-hover:text-pink-400 transition">${sec.title}</h4>
-              <p class="text-xs text-sec mt-1">${total} câu hỏi trắc nghiệm kèm ảnh chụp gốc 1:1</p>
+              <p class="text-xs text-sec mt-1">${total} câu hỏi trắc nghiệm</p>
             </div>
 
             <div class="mt-4 pt-3 border-t border-opacity-60" style="border-color: var(--border-color)">

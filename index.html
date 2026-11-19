@@ -573,15 +573,15 @@
       </div>
     </div>
 
-    <!-- 2 ĐỀ THI 4EXAM THỰC CHIẾN (ĐỀ FE & ĐỀ RE) ĐƯỢC ĐƯA RA NGOÀI TRANG CHỦ -->
+    <!-- 2 ĐỀ THI FE & RE ĐƯỢC ĐƯA RA NGOÀI TRANG CHỦ -->
     <div class="mb-6">
       <div class="flex items-center justify-between mb-3.5 gap-2 flex-wrap">
         <div class="flex items-center gap-2">
           <img src="stickers/icons/fe-sparkles.svg" alt="" class="w-4 h-4 shrink-0">
-          <h3 class="font-bold text-sm sm:text-base text-main">🎯 ĐỀ THI THỰC CHIẾN 4EXAM (KÈM ẢNH GỐC ĐỐI CHIẾU 1:1)</h3>
-          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold sticker-ribbon-pill">Đề mới nhất SU26</span>
+          <h3 class="font-bold text-sm sm:text-base text-main">🎯 BỘ ĐỀ THI SSG105 (KỲ SU26)</h3>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold sticker-ribbon-pill">SU26</span>
         </div>
-        <span class="text-xs text-mut">2 đề chuẩn • 60 câu trắc nghiệm</span>
+        <span class="text-xs text-mut">2 đề • 60 câu trắc nghiệm</span>
       </div>
       <div id="home-exams-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
     </div>
@@ -738,22 +738,22 @@
           <button onclick="app.toggleBookmark()" id="btn-bookmark" class="px-2.5 py-1 rounded-lg card-alt border text-xs font-semibold text-sec hover:border-pink-500 dark:hover:border-pink-400 transition" title="Đánh dấu câu này">
             ☆
           </button>
-          <button onclick="app.openImageModal()" id="btn-zoom-img" class="hidden px-2.5 sm:px-3 py-1 rounded-lg bg-pink-50 dark:bg-pink-500/15 border border-pink-300 dark:border-pink-500/40 text-xs font-bold text-pink-700 dark:text-pink-300 hover:bg-pink-100 dark:hover:bg-pink-500/25 transition flex items-center gap-1.5 shadow-sm" title="Xem ảnh gốc từ 4EXAM để đối chiếu câu hỏi">
+          <button onclick="app.openImageModal()" id="btn-zoom-img" class="hidden px-2.5 sm:px-3 py-1 rounded-lg bg-pink-50 dark:bg-pink-500/15 border border-pink-300 dark:border-pink-500/40 text-xs font-bold text-pink-700 dark:text-pink-300 hover:bg-pink-100 dark:hover:bg-pink-500/25 transition flex items-center gap-1.5 shadow-sm" title="Xem ảnh câu hỏi">
             <span>📸</span>
-            <span>Đối chiếu ảnh gốc</span>
+            <span>Xem ảnh</span>
           </button>
         </div>
       </div>
 
-      <!-- Banner Đối Chiếu Ảnh Gốc 4EXAM -->
+      <!-- Banner Ảnh Đề Thi -->
       <div id="image-crosscheck-banner" class="hidden mb-3.5 p-2.5 sm:p-3 rounded-xl border border-pink-200/90 dark:border-pink-500/30 bg-pink-50/70 dark:bg-pink-500/10 flex items-center justify-between gap-2.5 transition">
         <div class="flex items-center gap-2 text-xs sm:text-sm text-pink-700 dark:text-pink-300 font-medium overflow-hidden">
           <span class="text-base shrink-0">📸</span>
-          <span class="truncate">Đề 4EXAM gốc: <strong id="crosscheck-label" class="font-bold underline decoration-pink-400">q_001.png</strong></span>
+          <span class="truncate">Ảnh câu hỏi: <strong id="crosscheck-label" class="font-bold underline decoration-pink-400">q_001.png</strong></span>
         </div>
         <button type="button" onclick="app.openImageModal()" class="shrink-0 px-3 py-1.5 rounded-lg btn-primary text-xs font-bold flex items-center gap-1.5 shadow-sm hover:scale-[1.02] active:scale-[0.98] transition">
           <span>🔍</span>
-          <span>Xem ảnh đối chiếu</span>
+          <span>Xem ảnh</span>
         </button>
       </div>
 
@@ -794,10 +794,10 @@
         <div id="exp-crosscheck-bar" class="hidden pt-2.5 mt-2.5 border-t border-slate-200/70 dark:border-slate-700/60 flex items-center justify-between flex-wrap gap-2">
           <span class="text-xs text-sec flex items-center gap-1.5">
             <span>📸</span>
-            <span>Đối chiếu câu hỏi &amp; đáp án với ảnh gốc 4EXAM</span>
+            <span>Xem lại ảnh câu hỏi</span>
           </span>
           <button type="button" onclick="app.openImageModal()" class="px-3 py-1.5 rounded-lg card-alt border border-pink-300 dark:border-pink-500/40 text-xs font-bold text-pink-600 dark:text-pink-400 hover:bg-pink-50 dark:hover:bg-pink-500/15 transition flex items-center gap-1.5 shadow-sm">
-            <span>🖼️ Mở ảnh đối chiếu 1:1</span>
+            <span>🖼️ Mở ảnh</span>
           </button>
         </div>
       </div>
@@ -880,8 +880,8 @@
         <div class="flex items-center gap-2.5">
           <img src="stickers/chibi/strawberry-milk.png" alt="" class="w-9 h-9 object-contain sticker-drop">
           <div>
-            <h4 class="font-bold text-sm text-main">📸 Ảnh Gốc 4EXAM (<span id="modal-image-label">SSG104_001</span>)</h4>
-            <p class="text-[11px] text-mut">Ảnh chụp gốc cắt sạch khung 1:1 để đối chiếu câu hỏi &amp; đáp án ♥</p>
+            <h4 class="font-bold text-sm text-main">📸 Ảnh Đề Thi (<span id="modal-image-label">SSG104_001</span>)</h4>
+            <p class="text-[11px] text-mut">Ảnh câu hỏi để đối chiếu câu hỏi &amp; đáp án ♥</p>
           </div>
         </div>
         <div class="flex items-center gap-2">
