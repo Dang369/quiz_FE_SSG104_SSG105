@@ -18,10 +18,10 @@ const COURSE_META = {
     icon: '🌷',
     sticker: 'stickers/chibi/kitty-bell.png',
     miniSticker: 'stickers/chibi/daisy-blossom.png',
-    cuteBadge: 'Sweet Day ♥ Tình huống mới',
+    cuteBadge: 'Đề 4EXAM • 60 câu kèm ảnh gốc ♥',
     heroSticker: 'stickers/chibi/kitty-crown.png',
     name: 'SSG105',
-    subtitle: 'Tình huống thực chiến mới • Không trùng SSG104',
+    subtitle: 'Đề FE & RE chuẩn 4EXAM • 60 câu kèm ảnh gốc đối chiếu 1:1',
   },
   ALL: {
     icon: '🍓',
@@ -30,7 +30,7 @@ const COURSE_META = {
     cuteBadge: 'Chăm ngoan 10 điểm nè ✨',
     heroSticker: 'stickers/chibi/study-notebook.png',
     name: 'Tổng Ôn SSG',
-    subtitle: 'Gộp 412 câu • Đủ 8 mảng + 19 ảnh + 18 đa lựa chọn',
+    subtitle: 'Gộp 412 câu • Đề FE/RE 4EXAM + 19 ảnh SSG104 đối chiếu 1:1',
   },
 };
 
@@ -1057,14 +1057,22 @@ const app = {
 
   getAllCourseQuestions(code) {
     const raw = this.getRawCourses();
+    let qs = [];
     if (code === 'ALL') {
       const q104 = raw.SSG104 ? raw.SSG104.sections.flatMap((s) => s.questions) : [];
       const q105 = raw.SSG105 ? raw.SSG105.sections.flatMap((s) => s.questions) : [];
-      return [...q104, ...q105];
+      qs = [...q104, ...q105];
+    } else {
+      const course = raw[code];
+      if (!course) return [];
+      qs = course.sections.flatMap((s) => s.questions);
     }
-    const course = raw[code];
-    if (!course) return [];
-    return course.sections.flatMap((s) => s.questions);
+    const seen = new Set();
+    return qs.filter((q) => {
+      if (!q || !q.id || seen.has(q.id)) return false;
+      seen.add(q.id);
+      return true;
+    });
   },
 
   getCourseMistakeIds(code) {
@@ -1395,16 +1403,30 @@ const app = {
     const inlineBox = document.getElementById('inline-image-box');
     const inlineImg = document.getElementById('inline-image-el');
     const zoomBtn = document.getElementById('btn-zoom-img');
-    const imgUrl = q.image_local || (q.images && q.images[0]) || '';
-    const isQuestionImg = q.has_visual && imgUrl && q.visual_role === 'question';
+    const crossBanner = document.getElementById('image-crosscheck-banner');
+    const crossLabel = document.getElementById('crosscheck-label');
+    const imgUrl = q.image_local || (q.images && q.images[0]) || q.image || '';
 
-    if (isQuestionImg) {
-      inlineImg.src = imgUrl;
-      inlineBox.classList.remove('hidden');
-      zoomBtn.classList.remove('hidden');
+    if (q.has_visual && imgUrl) {
+      if (zoomBtn) zoomBtn.classList.remove('hidden');
+      if (crossBanner) {
+        crossBanner.classList.remove('hidden');
+        if (crossLabel) {
+          const originText = q.exam_origin ? `${q.exam_origin} • ` : '';
+          const slideText = q.exam_slide || imgUrl.split('/').pop();
+          crossLabel.textContent = `${originText}${slideText}`;
+        }
+      }
+      if (q.visual_role === 'question') {
+        inlineImg.src = imgUrl;
+        inlineBox.classList.remove('hidden');
+      } else {
+        inlineBox.classList.add('hidden');
+      }
     } else {
-      inlineBox.classList.add('hidden');
-      zoomBtn.classList.add('hidden');
+      if (inlineBox) inlineBox.classList.add('hidden');
+      if (zoomBtn) zoomBtn.classList.add('hidden');
+      if (crossBanner) crossBanner.classList.add('hidden');
     }
 
     document.getElementById('question-text').textContent = q.question || '';
@@ -1496,13 +1518,24 @@ const app = {
       if (q.has_visual && imgUrl && q.visual_role !== 'question') {
         expImgEl.src = imgUrl;
         expImgBox.classList.remove('hidden');
-        zoomBtn.classList.remove('hidden');
+        if (zoomBtn) zoomBtn.classList.remove('hidden');
       } else {
         expImgBox.classList.add('hidden');
+      }
+
+      const expCrossBar = document.getElementById('exp-crosscheck-bar');
+      if (expCrossBar) {
+        if (q.has_visual && imgUrl) {
+          expCrossBar.classList.remove('hidden');
+        } else {
+          expCrossBar.classList.add('hidden');
+        }
       }
     } else {
       expBox.classList.add('hidden');
       document.getElementById('exp-image-box').classList.add('hidden');
+      const expCrossBar = document.getElementById('exp-crosscheck-bar');
+      if (expCrossBar) expCrossBar.classList.add('hidden');
       peekWrap.classList.remove('hidden');
     }
 
@@ -1697,12 +1730,22 @@ const app = {
     document.getElementById('pill-drawer').classList.add('hidden');
   },
 
-  openImageModal() {
+  openImageModal(customUrl) {
     const q = this.activeQuestions[this.currentIndex];
-    const url = q && (q.image_local || (q.images && q.images[0]));
-    if (!q || !url) return;
-    document.getElementById('modal-image-label').textContent = q.id;
-    document.getElementById('modal-image-el').src = url;
+    const url = customUrl || (q && (q.image_local || (q.images && q.images[0]) || q.image));
+    if (!url) return;
+    const labelEl = document.getElementById('modal-image-label');
+    if (labelEl) {
+      if (q) {
+        const extra = q.exam_origin ? ` • ${q.exam_origin}` : '';
+        const slide = q.exam_slide ? ` (${q.exam_slide})` : '';
+        labelEl.textContent = `${q.id}${extra}${slide}`;
+      } else {
+        labelEl.textContent = 'Ảnh đề thi 4EXAM';
+      }
+    }
+    const imgEl = document.getElementById('modal-image-el');
+    if (imgEl) imgEl.src = url;
     document.getElementById('image-modal').classList.remove('hidden');
   },
 
