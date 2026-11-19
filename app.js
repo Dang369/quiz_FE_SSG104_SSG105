@@ -1104,6 +1104,62 @@ const app = {
   },
 
   renderHome() {
+    const examsGrid = document.getElementById('home-exams-grid');
+    if (examsGrid) {
+      examsGrid.innerHTML = '';
+      const ssg105 = this.getCourseData('SSG105');
+      if (ssg105) {
+        const feSec = ssg105.sections.find((s) => s.id === 'exam_fe');
+        const reSec = ssg105.sections.find((s) => s.id === 'exam_re');
+        [feSec, reSec].filter(Boolean).forEach((sec, idx) => {
+          const total = sec.questions.length;
+          let done = 0;
+          sec.questions.forEach((q) => {
+            if (this.state.answers[q.id]) done++;
+          });
+          const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+          const colorBadge = this.getSectionColorClass(sec.tag);
+          const secIcon = idx === 0 ? 'fe-books.svg' : 'fe-sparkles.svg';
+
+          const card = document.createElement('div');
+          card.className =
+            'card-surface border rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-pink-500 dark:hover:border-pink-400 transition cursor-pointer group shadow-sm';
+          card.onclick = () => {
+            this.currentCourseCode = 'SSG105';
+            this.startSection(sec.id);
+          };
+
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold border ${colorBadge}">
+                  <img src="stickers/icons/${secIcon}" alt="" class="w-3.5 h-3.5 shrink-0">
+                  <span>${sec.tag}</span>
+                </span>
+                <span class="text-[11px] text-mut flex items-center gap-1">
+                  <span>${total} câu</span>
+                  <img src="stickers/icons/fe-pink-heart.svg" alt="" class="w-3 h-3">
+                </span>
+              </div>
+              <h4 class="font-bold text-sm sm:text-base text-main group-hover:text-pink-600 dark:group-hover:text-pink-400 transition">${sec.title}</h4>
+              <p class="text-xs text-sec mt-1">${total} câu hỏi trắc nghiệm kèm ảnh chụp gốc 1:1</p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-opacity-60" style="border-color: var(--border-color)">
+              <div class="flex items-center justify-between text-xs mb-1.5">
+                <span class="text-sec">Đã làm: <strong class="text-main">${done}/${total}</strong> (${pct}%)</span>
+                <span class="text-pink-600 dark:text-pink-400 font-semibold group-hover:translate-x-0.5 transition">Học ngay ➔ ♥</span>
+              </div>
+              <div class="w-full h-1.5 rounded-full progress-track overflow-hidden">
+                <div class="h-full bg-pink-600 dark:bg-pink-400 rounded-full transition-all duration-300" style="width: ${pct}%"></div>
+              </div>
+            </div>
+          `;
+          examsGrid.appendChild(card);
+        });
+      }
+    }
+
     const grid = document.getElementById('courses-grid');
     grid.innerHTML = '';
 
@@ -1210,6 +1266,17 @@ const app = {
     btnMistakes.classList.toggle('opacity-50', mistakesList.length === 0);
 
     document.getElementById('course-total-sections').textContent = `${course.sections.length} bộ câu hỏi`;
+
+    const titleLabel = document.getElementById('course-section-title-label');
+    if (titleLabel) {
+      if (code === 'SSG105') {
+        titleLabel.textContent = '2 Đề Thi Thực Chiến 4EXAM & 8 Mảng Kiến Thức';
+      } else if (code === 'SSG104') {
+        titleLabel.textContent = 'Phân loại theo 8 mảng kiến thức';
+      } else {
+        titleLabel.textContent = 'Tổng hợp các bộ đề ôn luyện';
+      }
+    }
 
     const grid = document.getElementById('sections-grid');
     grid.innerHTML = '';
